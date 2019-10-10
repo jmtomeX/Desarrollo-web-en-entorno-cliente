@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<script type="text/javascript">
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+function MM_displayStatusMsg(msgStr) { //v1.0
+  window.status=msgStr;
+  document.MM_returnValue = true;
+}
+</script>
+<style type="text/css">
+.mano {
+	cursor: pointer;
+}
+span {
+	width:100px;
+}
+</style>
+</head>
+
+<body>
+<p>VENTANAS</p>
+<span onclick="MM_openBrWindow('peque.html','PEQUEÑA','toolbar=yes,location=yes,menubar=yes,width=250,height=250')"><a href="#">Abrir ventana pequeña</a></span>
+<br>
+<span onclick="MM_openBrWindow('mediana.html','MEDIANA','width=500,height=500')">Abrir ventana grande</span>
+<br>
+<span onclick="MM_openBrWindow('mediana.html','MEDIANA','width=500,height=500')"><a href="javascript:;" onclick="MM_displayStatusMsg('ESta viendo la nueva Rallon');return document.MM_returnValue"><img src="rallon.jpg" width="640" height="479" border="0" /></a></span>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+   user = prompt("Inserta usuario.");
+   passw = prompt("Inserta contraseña.");
+  
+   correctUser ="Cebanc";
+   year = new Date();
+   correctPassw = parseInt(year.getFullYear());
+   console.log(correctPassw);
+   
+  function redireccionar(){
+	  location.href="http://fox.com";
+	  }
+ 
+  if((user == correctUser) && (passw == correctPassw)) {
+       redireccionar();
+      }else {
+       alert("Incorrecto");
+      }
+  </script>
+</body>
+</html>

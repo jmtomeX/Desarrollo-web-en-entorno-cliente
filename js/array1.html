@@ -1,0 +1,58 @@
+      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Documento sin título</title>
+        <script>
+		 var palabras = "casa, perro, coche, barro, rueda";
+		  var words = "house, dog, coche, mud, wheel";
+		  var array_palabras = palabras.split(",");
+		  var array_words = words.split(",");
+          function traducirIngles() {
+          // document.getElementById("traduccion").value = document.getElementById("palabras").value;
+		  form.traduccion.value = form.palabras.value;
+        } 
+      </script>
+      </head>
+      <body>
+       <form action="" method="post" name="form" id="form">
+     <select name="palabras" size="4">
+        
+      <script>
+  	  
+	  // Meter nuevos elementos
+	  array_palabras.push("suelo");
+	  array_words.push("ground");
+	  array_palabras.unshift("rojo");
+	  array_words.unshift("red");
+      var num_elem = array_palabras.length;
+    
+      var resultado = "";
+      for(var i = 0;i < num_elem; i++ ) {
+  		 document.write("<option value='" + array_words[i] + "'>" + array_palabras[i] + "</option>");
+ 	  }
+	
+      </script>
+      
+       <h1>Traductor</h1>
+       </select>
+     <input name="traduccion" id="traduccion" type="text" />
+     <input name="traducir" type="button" value="Traducir" onclick = traducirIngles()  />
+     
+     </form>
+	<script>  	 
+      var nombre = "Alberto, Jose, María, Ane, Alexia";
+      var lista_nombre = nombre.split(",");
+      document.write(lista_nombre[0] + "<br>" );
+      lista_nombre[2] = "Feli";
+      for (var i = 0; i < lista_nombre.length; i++) {
+          document.write(lista_nombre[i] + "<br>");
+          }
+		document.write("<h1>Castellano - Inglés</h1>");  
+	  for(var i = 0;i < num_elem; i++ ) {
+          document.write(array_palabras[i] + " - " + array_words[i] + "<br>");
+      } 
+      console.log(lista_nombre);
+     </script>
+      </body>
+    </html>

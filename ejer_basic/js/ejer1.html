@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+</head>
+<script type="text/javascript">
+document.write("Hola <b>mundo</b><br>");
+var nombre = "Jose Mari";
+var nomMAy =nombre.toUpperCase();
+document.write("Muy bien me llamo <b>" + nomMAy + "</b>");
+caracteres = nombre.length;
+document.write("El nombre " + nombre + " tiene " + caracteres + " letras <br>");
+document.write("La tercera letra es la: " + nombre.charAt(2) + " y la última es : " + nombre.charAt(nombre.length-1) + "<br>" );
+document.write(nombre.slice(2,6) + "<br>");
+
+// primera forma
+/*function invertirCadena(cadena){
+	 cadena.split("").reverse().join("");
+}
+palabra = "Esto es lo normal";
+invertida = invertirCadena(palabra);
+document.write("Cadena:" + invertida );
+
+// segunda forma 
+const invertirCadena = cadena => {
+    let nuevaCadena = "";
+    for (let x = cadena.length - 1; x >= 0; x--) {
+        nuevaCadena += cadena[x];
+    }
+    return nuevaCadena;
+}
+*/
+// Fechas
+fecha_nacimiento = new Date(2000,02,22);
+document.write(fecha_nacimiento + "<br>");
+document.write("He nacido el año " + fecha_nacimiento.getFullYear() + " del mes " + fecha_nacimiento.getMonth() + "  del día " + fecha_nacimiento.getDay() + " día de la semana " + fecha_nacimiento.getDay());
+edad = 25;
+alert("Me llamo per.\nTengo " + edad + " años");
+prompt("De dónde eres?", "Donosti");
+pregunta = confirm("Eres de Donosti?");
+console.log(pregunta);
+
+if(edad >= 18){
+	alert("Eres mayor de edad");
+	}else {
+	alert("Eres menor de edad");
+	}
+</script>
+<body>
+<input type="date" />
+</body>
+</html>

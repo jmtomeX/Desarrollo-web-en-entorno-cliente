@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--     <script type="text/javascript">
+        for (var i = 5; i > 0; i--) {
+            document.write("Número " + i + "<br>");
+        }
+    </script>
+
+    <script type="text/javascript">
+        var nombre = prompt("ingresa un nombre");
+        var numero = prompt("ingresa un número");
+        for (var i = 0; i < numero; i++) {
+            document.write(nombre + "<br>");
+        }
+    </script>
+
+    <script type="text/javascript">
+        var nombre = prompt("ingresa un nombre");
+        var numero = prompt("ingresa un número");
+        var step = parseInt(prompt("ingresa el step"));
+        for (var i = 0; i < numero; i = i + step) {
+            document.write(nombre + "<br>");
+        }
+    </script> 
+
+    <script type="text/javascript">
+        var numWord = prompt("Ingresa un número de palabras.");
+        var palabras = prompt("Ingresa una palabra.");
+        var frase = palabras + " ";
+        var i = 1;
+        for (i; i < numWord; i++) {
+            var palabras = prompt("Ingresa otra palabra.");
+            frase += palabras + " ";
+        }
+        document.write(frase);
+    </script>-->
+    <script>
+        var increment = parseInt(50);
+        var size = parseInt(200);
+        document.write("<img src='./img/OCCAM_M10.jpg' alt='' id='imagen' height='" + size + "px' width=' " + size + "px'/>");
+        for (var i = 1; i < 6; i++) {
+            size = increment + size;
+            document.write("<img src='./img/OCCAM_M10.jpg' alt='' id='imagen' height='" + size + "px' width=' " + size + "px'/>");
+        }
+    </script>
+
+</body>
+
+</html>

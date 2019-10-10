@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Documento sin título</title>
+    <script>
+        function sumar() {
+            resultado.innerHTML = (parseInt(form_numeros.num1.value) + parseInt(form_numeros.num2.value));
+        }
+    </script>
+</head>
+
+<body>
+    <form action="" method="post" name="form_numeros">
+        <input name="num1" type="text" value="5" />
+        <input name="num2" type="text" value="7" />
+        <input name="button" type="button" onclick=sumar() value="Botón" />
+    </form>
+    <h1 id="resultado"><img src="./img/1.jpg" width="1024" height="768" id="foto" border="4" /></h1>
+    <script>
+        alert(document.getElementById("foto").width);
+        alert(document.getElementById("foto").border);
+
+        var aleatorio = parseInt(Math.random() * (5 - 1) + 1);
+        alert(aleatorio);
+    </script>
+</body>
+
+</html>

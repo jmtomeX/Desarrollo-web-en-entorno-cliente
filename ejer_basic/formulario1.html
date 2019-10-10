@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<script type="text/javascript">
+function MM_validateForm() { //v4.0
+  if (document.getElementById){
+    var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+    for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=document.getElementById(args[i]);
+      if (val) { nm=val.name; if ((val=val.value)!="") {
+        if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+          if (p<1 || p==(val.length-1)) errors+='- '+nm+' Debe ser un correo válido.\n';
+        } else if (test!='R') { num = parseFloat(val);
+          if (isNaN(val)) errors+='- '+nm+' debe contener un número.\n';
+          if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+            min=test.substring(8,p); max=test.substring(p+1);
+            if (num<min || max<num) errors+='- '+nm+' tiene que ser una edad entre '+min+' y '+max+'.\n';
+      } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' es obligatorio.\n'; }
+    } if (errors) alert('Han ocurrido los siguientes errores\n'+errors);
+    document.MM_returnValue = (errors == '');
+} }
+</script>
+</head>
+
+<body>
+<form method="post" action="http://forms.melodysoft.com">
+<input type="hidden" name="id" value="contacto_tome">
+
+  <p>Nombre:
+    <label for="Nombre"></label>
+  <input name="Nombre" type="text" id="Nombre" size="35" maxlength="30" />
+  </p>
+  <p>Pin: 
+    <input name="pin" type="password" id="pin" size="10" maxlength="4" />
+  </p>
+  <p>Edad:
+    <input name="edad" type="text" id="edad" size="10" maxlength="3" />
+  </p>
+    <label for="localidad">Localidad</label>
+    <select name="localidad" id="localidad">
+      <option selected="selected">Gipuzkoa</option>
+      <option>Alava</option>
+      <option>Bizkaia</option>
+    </select>
+
+  <p>Sexo:
+    <input name="hombre" type="radio" id="radio" value="radio" checked="checked" />
+    Hombre
+    <label for="sexo"></label>
+    <input type="radio" name="mujer" id="radio2" value="hombre" />
+  Mujer</p>
+  <p>Aficiones: Cine
+    <input name="cine" type="checkbox" id="cine" value="marcado" checked="checked" />
+    Múcica
+    <label for="cine"></label>
+    <input name="musica" type="checkbox" id="musica" value="si" />
+Teatro    
+<input name="teatro" type="checkbox" id="teatro" value="si" />
+    Deporte
+    <input name="deporte" type="checkbox" id="deporte" value="si" checked="checked" />
+  </p>
+    <p>
+      <label for="comentarios">Consulta</label>
+      <br />
+      <textarea name="comentarios" id="comentarios" cols="45" rows="5"></textarea>
+      
+    </p>
+    <p>
+      <input name="enviar" type="submit" id="enviar" onclick="MM_validateForm('Nombre','','R','pin','','RisNum','edad','','RinRange18:111');return document.MM_returnValue" value="Enviar" />
+      <input type="reset" name="borrar" id="borrar" value="Borrar" />
+    </p>
+</form>
+</body>
+</html>
