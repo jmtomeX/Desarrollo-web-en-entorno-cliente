@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<script>
+var nombres = ["Elejandro", "Ane", "Luis", "Cristina"];
+var notas = ["4", "6", "9", "7"];
+</script>
+</head>
+<h2>EJERCICIO 2 VIERNES 11</h2>
+<p>
+Tenemos dos arrays con nombres de personas, y otro con su nota correspondiente.
+Debemos mostrar en una tabla de dos columnas el nombre y la nota.
+Cómo modificación haz que cuando la nota sea suspenso se marque las letras en rojo.
+</p>
+<table width="400" border="1">
+  <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col">Nota</th>
+  </tr>
+<script>
+ for(var i = 0; i < nombres.length; i++) {
+  document.write("<tr>");
+    document.write("<td>" + nombres[i]+"</td>");
+	
+	if(notas[i] < 5) {
+	document.write("<td><span style = 'color:red'>" + notas[i]+ "</span></td></tr>");
+	}else{
+  	document.write("<td>" + notas[i]+" </td></tr>");
+	}
+ }
+ </script>
+ 
+</table>
+
+<body>
+</body>
+</html>

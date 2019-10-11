@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<script>
+	function mostrar() {
+		var nombre = document.getElementById("bici").src;
+		var url = nombre.split("/");
+		alert(url[url.length-1]);
+	}
+</script>
+</head>
+<p>
+EJERCICIO 3 VIERNES 11
+Tenemos una imagen y al pinchar sobre ella, nos tiene que aparecer el nombre de la imagen correspondiente en un alert.
+</p>
+
+<body>
+<img src="../../rallon.jpg" width="640" height="479" alt="rallon" onclick = mostrar() id="bici"/>
+
+</body>
+</html>

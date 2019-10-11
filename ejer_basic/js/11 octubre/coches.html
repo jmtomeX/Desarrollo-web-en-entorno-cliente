@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+</head>
+<body>
+<h2>EJERCICIO 1 VIERNES 11</h2>
+<p>
+En un formulario, un cuadro de texto para que escriban marcas de coche y un botón a su derecha que ponga insertar coche.
+Cada vez que escriban la marca y le den a insertar, tiene que aparecer un alert que indique que se ha introducido X marca de coche y se tiene que guardar en un array.
+Una vez terminado le pones un botón que sea mostrar coches, y nos muestre en un alert todos los que introdujeron con este aspecto:
+Los coches introducidos han sido:
+Renault
+Seat
+…
+</p>
+
+<form action="" method="post" name="form_coches">
+<input name="marca" type="text" size="35" maxlength="25" />
+<input name="Introducir" type="button" value="Introducir Marca" onclick = insertarMarca() />
+<input name="mostrar" type="button" value="Mostrar Marcas" onclick = mostrarMarca() />
+</form>
+<script>
+	var array_marcas = new Array();
+	var marca = form_coches.marca.value;
+	
+	function insertarMarca() {
+		marca = form_coches.marca.value ;
+		array_marcas.push(marca);
+			console.log(array_marcas);
+	}	
+   function mostrarMarca() {
+	   var mostrando = "";
+	   for(var i = 0; i < array_marcas.length; i++) {
+		   mostrando += array_marcas[i] + "\n";
+		   console.log(mostrando);
+		   }
+		alert(mostrando);
+	   }
+	
+</script>
+</body>
+</html>
