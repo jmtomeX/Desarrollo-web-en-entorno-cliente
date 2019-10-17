@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<script>
+ var palabras = "casa, perro, coche, barro, rueda";
+		  var words = "house, dog, coche, mud, wheel";
+		  var array_palabras = palabras.split(",");
+		  var array_words = words.split(",");
+		  
+	function insertarCast() {
+	var inputTxt = document.getElementsByName("cast");
+	var nombres ="";
+	for(var i = 0; i < 5; i++ ){
+		inputTxt[i].value = array_palabras[i];
+	}
+	}
+	
+	function insertarIng() {
+		var inputTxt = document.getElementsByName("ingl");
+	var nombres ="";
+	for(var i = 0; i < 5; i++ ){
+		inputTxt[i].value = array_words[i];
+	}
+	}
+		  
+</script>
+</head>
+<body>
+<table width="400" border="1">
+  <tr align="center">
+    <td>Castellano</td>
+    <td>Inglés</td>
+  </tr>
+  <tr>
+    <td><input name="cast" type="text" /></td>
+    <td><input name="ingl" type="text" /></td>
+  </tr>
+  <tr>
+   <td><input name="cast" type="text" /></td>
+    <td><input name="ingl" type="text" /></td>
+  </tr>
+  <tr>
+  <td><input name="cast" type="text" /></td>
+    <td><input name="ingl" type="text" /></td>
+  </tr>
+  <tr>
+  <td><input name="cast" type="text" /></td>
+    <td><input name="ingl" type="text" /></td>
+  </tr>
+  <tr>
+    <td><input name="insertarCast" type="button" value="Insertar Palabras Castellano" onclick="insertarCast()"/></td>
+     <td><input name="insertarIngl" type="button" value="Insertar Palabras Inglés" onclick="insertarIng()" /></td>
+  </tr>
+</table>
+
+</body>
+</html>

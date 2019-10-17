@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Documento sin título</title>
+
+</head>
+
+<body>
+    <form>
+        <table width="400" border="1">
+            <tr>
+                <th scope="col">
+
+                    <input type="radio" name="radio" id="radio1" value="product1" />
+                    <label for="radio">Ordenador 1</label></p>
+                    <img src="../../../img/lenobo.jpg" width="250" height="199" />
+                    <h3 id="price1">345</h3>
+                </th>
+                <th rowspan="2" scope="col">
+                    <label for="precio">Precio<input name="precio" id="precio" type="text" /></label><br/><br/>
+                    <label for="iva">Iva <input name="iva" id="iva" type="text" /></label><br/><br/>
+                    <label for="total">Precio Total<input name="total" id="total" type="text" /></label><br/><br/>
+                    <input type="button" onclick="comprar()" value="Comprar" />
+                    <br /><br />
+                    <label for="total">Tienes un cupón<input name="cupon" id="cupon" type="text" /></label><br/><br/>
+                    <input type="button" onclick="descuento()" value="Descuento" />
+                    <br /><br />
+
+                </th>
+            </tr>
+            <tr>
+                <td><input type="radio" name="radio" id="radio" value="product2" />
+                <label for="radio">Ordenador 2</label>
+                    </p>
+                    <img src="../../../img/asus.jpg" width="250" height="172" />
+                    <h3 id="price2">459€</h3>
+                    </p>
+                </td>
+
+            </tr>
+        </table>
+    </form>
+    <script>
+        var precioTotal = 0;
+        // ordenador seleccionado
+        var computer = document.getElementsByTagName("input");
+        var total_compra = document.getElementById("total");
+        var nomDescuento = ["1111", "2222", "3333", "4444"];
+        var cantDescuento = [10, 15, 20, 25];
+
+        function comprar() {
+            for (i = 0; i < computer.length; i++) {
+                if (computer[i].checked) {
+                    console.log(computer[i].value);
+                    var precio = "";
+                    if (computer[i].value == "product1") {
+                        precio = parseInt(document.getElementById("price1").innerHTML);
+                        total_compra.value = calcular(precio);
+                    } else if (computer[i].value == "product2") {
+                        precio = parseInt(document.getElementById("price2").innerHTML);
+                        total_compra.value = calcular(precio);
+                    }
+                }
+            }
+        }
+		
+        function descuento() {
+            var descuento = document.getElementById("cupon").value;
+            for (var i = 0; i < nomDescuento.length; i++) {
+                if (descuento == nomDescuento[i]) {
+					alert(descuento);
+                    total_compra.value =parseInt(total_compra.value - (parseInt(total_compra.value) * cantDescuento[i] / 100));
+                    i = nomDescuento.length;
+                }else {
+					alert("Cupón no válido");	
+				}
+				
+            }
+        }
+
+        function calcular(precio) {
+            var iva = 0.21;
+            var precioTotal = parseInt((precio * iva) + precio);
+            document.getElementById("precio").value = precio;
+            document.getElementById("iva").value = iva * 100;
+            console.log(precioTotal);
+            return precioTotal;
+        }
+    </script>
+</body>
+
+</html>

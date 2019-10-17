@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/ddfullscreenimageviewer.css" />
+    <link rel="stylesheet" href="./css/zoomio.css" />
+
+    <style>
+        /* demo class for thumbnail images on the page */
+        
+        .thumbnails {
+            max-width: 300px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="./js/ddfullscreenimageviewer.js">
+        /***********************************************
+         * DD Full Screen Image Viewer By Dynamic Drive
+         * Project Page: http://www.dynamicdrive.com/dynamicindex4/fullscreenviewer/
+         ***********************************************/
+    </script>
+
+    <script src="./js/zoomio.js"></script>
+
+    <script>
+        jQuery(function() { // on DOM Load
+            $('img.thumbnails').fullscreenimage({
+                scale: 2 // magnify by 2 times when mouse moves over full screen image (set to 1 to disable)
+            })
+        })
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <script>
+        jQuery(function($) { // on DOM load
+            $(".imagen").fullscreenimage()
+
+            $('img.thumbnails').fullscreenimage() // add Full Screen Image to all images with class "thumbnails"
+            $('#singleimage').fullscreenimage() // add Full Screen Image to single image with ID "singleimage"
+
+            $('#myimage').fullscreenimage({
+                largeimage: '../img/1.jpg' // single option, no comma
+            })
+
+            //OR
+
+            $('#myimage').fullscreenimage({
+                largeimage: '../img/1.jpg',
+                scale: 3 // <-- No comma after last option
+            })
+
+            var disablescriptmql = window.matchMedia ? window.matchMedia("screen and (max-device-width: 680px)") : {
+                matches: false,
+                addListener: function() {}
+            }
+        })
+    </script>
+
+    <img class="thumbnails" src="./img/girlwatersmall.jpg" data-large="./img/girlwater.jpg" data-scale="4" />
+    <img class="thumbnails" src="./img/drinkbeachsmall.jpg" data-large="./img/drinkbeach.jpg" data-scale="4" />
+    <img class="thumbnails" src="./img/girlglassessmall.jpg" data-large="./img/girlglasses.jpg" data-scale="4" />
+
+</body>
+
+</html>
