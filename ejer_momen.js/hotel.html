@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel</title>
+    <script src="./js/moments.js"></script>
+</head>
+
+<body>
+    <form>
+        <table width="400" border="1">
+            <tr>
+                <th scope="col">
+
+                    <input type="radio" name="radio" id="radio1" value="product1" />
+                    <label for="radio">Ordenador 1</label></p>
+                    <img src="../../../img/lenobo.jpg" width="250" height="199" />
+                    <h3 id="price1">345</h3>
+                </th>
+                <th rowspan="2" scope="col">
+                    <label for="precio">Precio<input name="precio" id="precio" type="text" /></label><br/><br/>
+                    <label for="iva">Iva <input name="iva" id="iva" type="text" /></label><br/><br/>
+                    <label for="total">Precio Total<input name="total" id="total" type="text" /></label><br/><br/>
+                    <input type="button" onclick="comprar()" value="Comprar" />
+                    <br /><br />
+                    <label for="total">Tienes un cupón<input name="cupon" id="cupon" type="text" /></label><br/><br/>
+                    <input type="button" onclick="descuento()" value="Descuento" />
+                    <br /><br />
+
+                </th>
+            </tr>
+            <tr>
+                <td><input type="radio" name="radio" id="radio" value="product2" />
+                <label for="radio">Ordenador 2</label>
+                    </p>
+                    <img src="../../../img/asus.jpg" width="250" height="172" />
+                    <h3 id="price2">459€</h3>
+                    </p>
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
