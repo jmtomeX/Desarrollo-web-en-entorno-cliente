@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paraes impares</title>
+    <style>
+        .par {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var nomDescuento = ["1111", "2222", "3333", "4444"];
+        var cantDescuento = [10, 15, 20, 25];
+        document.write("<table width='400' border='1'>");
+        document.write("<tr><th>Código</th><th>Descuento</th></tr>");
+        var line = document.getElementsByClassName("par");
+
+        for (var i = 0; i < nomDescuento.length; i++) {
+            document.write("<tr>");
+            if (i % 2 == 0) {
+
+                document.write("<td class= 'par'>");
+                document.write(nomDescuento[i]);
+                document.write("</td><td class= 'par'>" + cantDescuento[i]);
+            } else {
+
+                document.write("<td>");
+                document.write(nomDescuento[i]);
+                document.write("</td><td>" + cantDescuento[i]);
+            }
+            document.write("</td></tr>");
+
+
+        }
+
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

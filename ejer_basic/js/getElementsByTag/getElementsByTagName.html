@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<style>
+	.muestra {
+	width:400px;
+	height:auto;
+	}
+</style>
+</head>
+
+<body>
+<form method="post" name="form" action="" id="form1">
+<label>Alumno 1 <input name="" type="text" value="" /></label><br />
+<label>Alumno 2 <input name="" type="text" value="" /></label><br />
+<label>Alumno 3 <input name="" type="text" value="" /></label><br />
+<label>Alumno 4 <input name="" type="text" value="" /></label><br />
+<input name="" type="submit" value="Mostrar alumnos" onclick="mostrarAlumnos()" /><br />
+<input value="Vaciar alumnos" type="reset" />
+</form>
+<div class="muestra">
+
+</div>
+
+<br />
+<script>
+	var caja = document.getElementsByClassName("muestra");
+	
+	function mostrarAlumnos() {
+	var nombre = document.getElementsByTagName("input");
+	var nombres ="";
+	for(var i = 0; i < nombre.length-2; i++ ){
+		nombres +=  nombre[i].value + " ";
+	}
+	caja.innerHTML = "Los usuarios son " + nombres + "<br>";
+	alert("Los usuarios son " + nombres + "\n");
+	}
+	
+	
+	
+	/*function resetForm() {
+		for(var i = 0; i < nombre.length; i++ ){
+		nombre[i].value = "";
+	}
+		}*/
+</script>
+</body>
+</html>
