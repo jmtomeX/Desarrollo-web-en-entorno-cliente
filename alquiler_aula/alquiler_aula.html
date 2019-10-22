@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alquiler de aulas</title>
+    <script src="./js/moment.js"></script>
+
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        
+        #container {
+            background-color: #fafafa;
+            margin: 1rem;
+            padding: 1rem;
+            border: 2px solid #ccc;
+            /* IMPORTANTE */
+            text-align: justify;
+        }
+        
+        input[type="time"],
+        label {
+            margin: 1em;
+        }
+        
+        th {
+            padding: 1em;
+        }
+        
+        #reloj {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 2em;
+        }
+    </style>
+    <script>
+        function mueveReloj() {
+            momentoActual = new Date()
+            hora = momentoActual.getHours()
+            minuto = momentoActual.getMinutes()
+            segundo = momentoActual.getSeconds()
+
+            horaImprimible = hora + " : " + minuto + " : " + segundo
+
+            document.getElementById("reloj").innerHTML = horaImprimible;
+            setTimeout("mueveReloj()", 1000)
+        }
+
+        function calcular() {
+            hour_in = form1.hour_entrada.value;
+            hour_out = form1.hour_salida.value;
+            hour_in = moment(hour_in, 'HH');
+            hour_out = moment(hour_out, 'HH');
+            var total_horas = moment.duration(hour_out - hour_in).humanize();
+            total_horas = parseInt(total_horas)
+            var precio = 0;
+
+            if (form1.radio.value == "aula1") {
+                precio = parseInt(document.getElementById("price1").innerHTML);
+            } else {
+                precio = parseInt(document.getElementById("price2").innerHTML);
+            }
+            var precio_total = parseInt(total_horas * precio);
+            alert("El precio total es " + precio_total);
+        }
+    </script>
+</head>
+
+<body onload="mueveReloj()">
+    <div id="container">
+        <form id="form1">
+            <table width="400" border="1">
+                <tr>
+                    <td colspan="2" align="center" id="reloj"></td>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <input type="radio" name="hour_entrada" value="aula2" />
+                        <label for="radio">Aula 1</label></p>
+                        <img src="./aula1.JPG" width="500" height="400" alt="">
+                        <h3><span id="price1">8</span>€</h3>
+                    </th>
+                    <th scope="col">
+                        <input type="radio" name="hour_salida" value="aula1" />
+                        <label for="radio">Aula 2</label></p>
+                        <img src="./aula2.jpg" width="500" height="400" alt="">
+                        <h3><span id="price2">10</span>€</h3>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="hora_entrada">Hora de entrada</label><input type="time" name="hora_entrada" id="fecha_entrada">
+                        <label for="hora_salida">Hora de salida</label><input type="time" name="hora_salida" id="fecha_salida">
+                        <button type="submit" onclick="calcular()">Coger Aula</button>
+                    </td>
+
+                </tr>
+            </table>
+        </form>
+    </div>
+    </<body>
+
+</html>
