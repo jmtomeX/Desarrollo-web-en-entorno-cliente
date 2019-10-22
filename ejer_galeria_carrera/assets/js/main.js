@@ -13,16 +13,18 @@ function cargarImg() {
         "img_9.jpg"
     ];
     var cont = 0;
-    for (var i = 0; i < fotosArray.length / 3; i += 3) {
-        document.write("<div class = 'row'>");
-        for (var item in fotosArray) {
-            document.write(
-                "<div class='col s4'><img src='./img/" +
-                fotosArray[item] +
-                "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>"
-            );
+    for (var i = 0; i < fotosArray.length; i++) {
+        if (i % 3 == 0) {
+            document.write("<div class = 'row'>");
         }
-        document.write("</div>");
+        document.write(
+            "<div class='col s12 m6 xl4'><img src='./img/" +
+            fotosArray[i] +
+            "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>"
+        );
+        if (i % 3 == 2) {
+            document.write("</div>");
+        }
     }
 }
 var arrayModif = "";
@@ -34,6 +36,7 @@ function addBorder(obj) {
     var url = obj.src.split("/");
     var nameImg = url[url.length - 1];
     imgSeleccionadas.push(nameImg);
+    console.log(nameImg);
 
     //obj.className = "borderRed";
     //obj.style.border = "1px solid red";
