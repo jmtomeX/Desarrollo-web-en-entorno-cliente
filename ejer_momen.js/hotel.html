@@ -46,11 +46,11 @@
             var precio = 0;
 
             if (form1.radio.value == "habitacion1") {
-                precio = parseInt(document.getElementById("price1").innerHTML);
+                precio = document.getElementById("price1").innerHTML;
             } else {
-                precio = parseInt(document.getElementById("price2").innerHTML);
+                precio = document.getElementById("price2").innerHTML;
             }
-            var precio_total = parseInt(precio * total_dias);
+            var precio_total = parseInt(precio) * parseInt(total_dias);
             alert("El precio total es por  " + total_dias + " es de " + precio_total);
 
         }

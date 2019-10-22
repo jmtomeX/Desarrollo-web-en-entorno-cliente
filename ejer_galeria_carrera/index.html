@@ -1,47 +1,90 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="./assets/materialize-v1.0.0/materialize/css/materialize.min.css" media="screen,projection" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./assets/materialize-v1.0.0/materialize/css/materialize.min.css"
+      media="screen,projection"
+    />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body {
-            padding: 2em;
-        }
-        
-        img {
-            opacity: .8;
-        }
-        
-        img:hover {
-            opacity: 1;
-        }
+      body {
+        padding: 2em;
+        box-sizing: border-box;
+      }
+
+      .imgGalery {
+        opacity: 0.8;
+        width: 95%;
+        height: 80%;
+      }
+      .imgGalery:hover {
+        opacity: 1;
+      }
+      .container .row .col {
+        padding: 0;
+        line-height: 1.5;
+      }
+      body .container div img.imgGalery {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .borderRed {
+        border: "2px solid red";
+        opacity: 0.8;
+        width: 94%;
+        height: 79%;
+      }
     </style>
     <script src="./assets/js/main.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <p>Tenemos un array con nombres de fotos, queremos mostrar esas fotos en tres columnas (pueden ser cualquier numero de fotos). Las fotos se tienen que ver con una opacidad del 80% y al pasar por encima de cada una se vea al 100% y al salir vuelva
-            al 80%. En caso que hagamos clic sobre una foto esa se tiene que poner con un borde doble como si estuviera seleccionada. Luego pones un botón que ponga quitar selecciones que vuelva a dejar las fotos seleccionadas sin el borde de doble. Y
-            un botón que ponga hacer pedido, que al darle nos aparezca en un alert: has elegido las siguientes fotos: ...</p>
-        <script>
-            cargarImg();
-        </script>
+      <div class="col s3">
+        <h2>Galería de Imágenes</h2>
+      </div>
 
-        <a class="waves-effect waves-light btn" type="button" onclick="quitarSelecciones()">Quitar Selecciones</a>
-        <a class="waves-effect waves-light btn">Hacer Pedido</a>
+      <p>
+        Tenemos un array con nombres de fotos, queremos mostrar esas fotos en
+        tres columnas (pueden ser cualquier numero de fotos). Las fotos se
+        tienen que ver con una opacidad del 80% y al pasar por encima de cada
+        una se vea al 100% y al salir vuelva al 80%. En caso que hagamos clic
+        sobre una foto esa se tiene que poner con un borde doble como si
+        estuviera seleccionada. Luego pones un botón que ponga quitar
+        selecciones que vuelva a dejar las fotos seleccionadas sin el borde de
+        doble. Y un botón que ponga hacer pedido, que al darle nos aparezca en
+        un alert: has elegido las siguientes fotos: ...
+      </p>
+      <script>
+        cargarImg();
+      </script>
+
+      <a
+        class="waves-effect waves-light btn"
+        type="button"
+        onclick="quitarSelecciones()"
+        >Quitar Selecciones</a
+      >
+      <a class="waves-effect waves-light btn">Hacer Pedido</a>
     </div>
 
     <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="./assets/materialize-v1.0.0/materialize/js/materialize.min.js"></script>
-</body>
-
+    <script
+      type="text/javascript"
+      src="./assets/materialize-v1.0.0/materialize/js/materialize.min.js"
+    ></script>
+  </body>
 </html>
