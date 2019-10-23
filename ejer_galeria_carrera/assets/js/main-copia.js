@@ -18,7 +18,7 @@ function cargarImg() {
             document.write("<div class = 'row'>");
         }
         document.write(
-            "<div class='col s12 m6 xl4'><img src='./img/" +
+            "<div class='col s12 m6 xl4'>+<img class ='s12 m6 xl4' src='./img/" +
             fotosArray[i] +
             "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>"
         );

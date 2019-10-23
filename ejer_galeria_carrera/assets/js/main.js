@@ -14,12 +14,15 @@ function cargarImg() {
   ];
   var cont = 0;
   for (var i = 0; i < fotosArray.length; i++) {
+    if (i % 3 == 0) {
+        document.write("<div class = 'row'>");
+    }
     document.write(
-      "<div class='col s12 l4'><img src='./img/" +
-        fotosArray[i] +
-        "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>"
-    );
-  }
+        "<div class='col s12  xl4'><img src='./img/" + fotosArray[i] + "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>");
+    if (i % 3 == 2) {
+        document.write("</div>");
+    }
+}
 }
 var arrayModif = "";
 var imgSeleccionadas = [];
