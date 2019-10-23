@@ -15,14 +15,17 @@ function cargarImg() {
   var cont = 0;
   for (var i = 0; i < fotosArray.length; i++) {
     if (i % 3 == 0) {
-        document.write("<div class = 'row'>");
+      document.write("<div class = 'row'>");
     }
     document.write(
-        "<div class='col s12  xl4'><img src='./img/" + fotosArray[i] + "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>");
+      "<div class='col s12  xl4'><img src='./img/" +
+        fotosArray[i] +
+        "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>"
+    );
     if (i % 3 == 2) {
-        document.write("</div>");
+      document.write("</div>");
     }
-}
+  }
 }
 var arrayModif = "";
 var imgSeleccionadas = [];
@@ -38,31 +41,21 @@ function addBorder(obj) {
   //obj.className = "borderRed";
   //obj.style.border = "1px solid red";
   //obj.class = "borderRed";
-  /*
-      var itemAdd = obj.src.split("/");
-      var nameImg = itemAdd[itemAdd.length-1];
-      console.log(nameImg);
-      arrayModif.push(obj.src);
-    */
 }
 
 function quitarSelecciones() {
   var borderRed = document.getElementsByClassName("borderRed");
 
-  // console.log(borderRed[0].src);
   console.log("Elementos array " + borderRed.length);
-  //console.log(borderRed[1].src + "\n");
 
   var todos = document.getElementsByTagName("img");
-  //console.log("Clases " + x[0].className);
 
   for (var i = 0; i < todos.length; i++) {
     console.log("Contador " + i);
-    // console.log("Clases " + x[i].className);
-    // borderRed[i].classList.toggle("borderRed");
+
     todos[i].className = "imgGallery";
     //? borderRed[i].classList.remove("borderRed");
-    //console.log(borderRed[item].src + "\n");
+
 
     // Eliminar elemento del array  imgSeleccionadas
     imgSeleccionadas.shift();
@@ -77,7 +70,7 @@ function hacerPedido() {
 
   document.getElementById("imgModal").innerHTML = cadena;
   console.log("casdena" + cadena);
-  quitarSelecciones() 
+  quitarSelecciones();
 }
 
 // Modal
