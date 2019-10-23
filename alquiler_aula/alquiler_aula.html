@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Alquiler de aulas</title>
     <script src="./js/moment.js"></script>
 
@@ -45,21 +45,22 @@
             segundo = momentoActual.getSeconds()
 
             horaImprimible = hora + " : " + minuto + " : " + segundo
-
             document.getElementById("reloj").innerHTML = horaImprimible;
             setTimeout("mueveReloj()", 1000)
         }
 
         function calcular() {
-            hour_in = form1.hour_entrada.value;
-            hour_out = form1.hour_salida.value;
+            hour_in = form1.hora_entrada.value;
+            hour_out = form1.hora_salida.value;
             hour_in = moment(hour_in, 'HH');
             hour_out = moment(hour_out, 'HH');
             var total_horas = moment.duration(hour_out - hour_in).humanize();
+            console.log(total_horas);
+
             total_horas = parseInt(total_horas)
             var precio = 0;
 
-            if (form1.radio.value == "aula1") {
+            if (form1.hora.value == "aula1") {
                 precio = parseInt(document.getElementById("price1").innerHTML);
             } else {
                 precio = parseInt(document.getElementById("price2").innerHTML);
@@ -79,13 +80,13 @@
                 </tr>
                 <tr>
                     <th scope="col">
-                        <input type="radio" name="hour_entrada" value="aula2" />
+                        <input type="radio" name="hora" value="aula1" checked/>
                         <label for="radio">Aula 1</label></p>
                         <img src="./aula1.JPG" width="500" height="400" alt="">
                         <h3><span id="price1">8</span>€</h3>
                     </th>
                     <th scope="col">
-                        <input type="radio" name="hour_salida" value="aula1" />
+                        <input type="radio" name="hora" value="aula2" />
                         <label for="radio">Aula 2</label></p>
                         <img src="./aula2.jpg" width="500" height="400" alt="">
                         <h3><span id="price2">10</span>€</h3>
@@ -93,15 +94,15 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <label for="hora_entrada">Hora de entrada</label><input type="time" name="hora_entrada" id="fecha_entrada">
-                        <label for="hora_salida">Hora de salida</label><input type="time" name="hora_salida" id="fecha_salida">
-                        <button type="submit" onclick="calcular()">Coger Aula</button>
+                        <label for="hora_entrada">Hora de entrada</label><input type="time" name="hora_entrada" min="09:00" max="18:00" value="10:00">
+                        <label for="hora_salida">Hora de salida</label><input type="time" name="hora_salida" min="09:00" max="18:00" value="13:00">
+                        <input type="button" onclick="calcular()" value="Coger Aula"></input>
                     </td>
 
                 </tr>
             </table>
         </form>
     </div>
-    </<body>
+</body>
 
 </html>
