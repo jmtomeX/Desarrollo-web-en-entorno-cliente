@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Carrusel</title>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .row .col a .btn {
+            margin-bottom: 1em;
+        }
+        
+        #box_carr {
+            padding: 1em;
+            width: 100%;
+            height: 60%;
+        }
+        
+        .space {
+            margin-bottom: .3em;
+        }
+        
+        #mumero_img {
+            height: 150px;
+            padding-top: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col s12 l4" id="mumero_img">
+                <h2 id="num">1</h2>
+            </div>
+            <div class="col s12 l8" id="box_carr">
+                <img id="carrusel" src="./img/monos.jpg" alt="" width=" 500" height="400">
+
+            </div>
+
+            <div class="col s12 m6 l1 ">
+                <button class="waves-effect waves-light btn space" onclick="pasar_img(0,true)">1</button></div>
+            <div class="col s12 m6 l1 ">
+                <button class="waves-effect waves-light btn space" onclick="pasar_img(1,true)">2</button></div>
+            <div class="col s12 m6 l1">
+                <button class="waves-effect waves-light btn space" onclick="pasar_img(2,true)">3</button></div>
+            <div class="col s12 m6 l1">
+                <button class="waves-effect waves-light btn space" onclick="pasar_img(3,true)">4</button></div>
+            <div class="col s12 m6 l1">
+                <button class="waves-effect waves-light btn space" onclick="pasar_img(4,true)">5</button></div>
+            <div class="col s12 m6 l1">
+                <button class="waves-effect waves-light btn space" onclick="pasar_img('-')">-</button></div>
+            <div class="col s12 m6 l1">
+                <button class="waves-effect waves-light btn space" onclick="pasar_img('+')">+</button></div>
+            <div class="col s12 m6 l2">
+                <button class="waves-effect waves-light btn space" onclick="showImage()">Mostrar</button></div>
+            <div class="col s12 m6 l2">
+                <button class="waves-effect waves-light btn space" onclick="hiddenImage()">Ocultar</button></div>
+        </div>
+        <div class="col s12"></div>
+        <form action="#">
+            <p class="range-field">
+                <input type="range" id="rango" min="0" max="1" step="0.1" value="" onchange="moveOpacity()" />
+            </p>
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html

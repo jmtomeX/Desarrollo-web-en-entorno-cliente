@@ -38,20 +38,22 @@
             }
         </style>
         <script>
-            function mueveReloj() {
-                momentoActual = new Date()
-                hora = momentoActual.getHours()
-                minuto = momentoActual.getMinutes()
-                segundo = momentoActual.getSeconds()
+            var momentoActual = "";
 
-                horaImprimible = hora + " : " + minuto + " : " + segundo
+            function mueveReloj() {
+
+                momentoActual = new Date();
+                var hora = momentoActual.getHours();
+                var minuto = momentoActual.getMinutes();
+                var segundo = momentoActual.getSeconds();
+                horaImprimible = hora + " : " + minuto + " : " + segundo;
                 document.getElementById("reloj").innerHTML = horaImprimible;
-                setTimeout("mueveReloj()", 1000)
+                setTimeout("mueveReloj()", 1000);
             }
 
             /*
             Primero: si reservan menos de una hora que se les cobre la hora entera, y si por ejemplo reserva algo mas de una hora ...
-            Segundo: un aviso diciendo las horas que faltan para iniciar a la reserva.
+           
             Tercero: Poner dia y hora
             */
 
@@ -62,30 +64,55 @@
                 hour_in = moment(hour_in, 'HH:mm');
                 hour_out = moment(hour_out, 'HH:mm');
                 var minutos_totales = hour_out.diff(hour_in, 'minutes');
-                console.log(minutos_totales);
+
+                //Sacar la difencia de minutos
+                var resto_minutos = minutos_totales % 60;
+                console.log(minutos_totales + " resto minutos " + resto_minutos);
+                console.log("Minutos totales " + minutos_totales);
                 var horas_totales = hour_out.diff(hour_in, 'hours');
-
-                //minutos_totales = Math.abs(minutos_totales);
+                console.log("----- *" + horas_totales)
+                    //minutos_totales = Math.abs(minutos_totales);
                 if (minutos_totales % 60 != 0) {
-                    horas_totales = horas_totales + 1;
+                    horas_totales += 1;
                 }
-                console.log(horas_totales);
-                console.log(moment().format('LTS'));
 
+                // Comprobar que la hora de entrada no puede ser menor
+                if (hour_in >= hour_out) {
+                    alert("La hora de entrada no puede ser menor a la de salida.");
+                    return;
+                }
+
+                //  Segundo: un aviso diciendo las horas que faltan para iniciar a la reserva.
+                /********************************************************************************/
+                //var hora_actual = moment().format('LTS');
+                //console.log(hora_actual);
+                var hora_actual = moment(momentoActual, 'HH:mm');
+                if (hour_in < hora_actual) {
+                    alert("La hora de entrada es anterior a la hora actual.");
+                    return;
+                }
+                console.log("Hora actual ----> " + momentoActual);
+
+                //var resta = moment(hora).endOf(hour_in).fromNow(); // en 8 horas
+
+                var horas_acceso = hour_in.diff(hora_actual, 'hours');
+                alert("Falta " + horas_acceso + " para acceder al aula.");
+                console.log(horas_acceso);
+
+                /************************************************************************************/
                 //hour_prue = moment.duration(24, "minutes").humanize();
-                //console.log(hour_prue);
-                console.log(horas_totales)
                 var precio = 0;
                 if (form1.hora.value == "aula1") {
                     precio = parseInt(document.getElementById("price1").innerHTML);
                 } else {
                     precio = parseInt(document.getElementById("price2").innerHTML);
                 }
+                // Calculamos el precio
                 var precio_total = parseInt(horas_totales * precio);
+
                 alert("El precio total es " + precio_total);
+                alert("Has cogido el aula " + horas_totales + " y " + resto_minutos + "minutos");
                 //var reloj = setTimeout("moment().format('LTS')", 1000)
-
-
             }
         </script>
     </head>
@@ -113,8 +140,8 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <label for="hora_entrada">Hora de entrada</label><input type="time" name="hora_entrada" min="09:00" max="18:00" value="10:00">
-                            <label for="hora_salida">Hora de salida</label><input type="time" name="hora_salida" min="09:00" max="18:00" value="13:00">
+                            <label for="hora_entrada">Hora de entrada</label><input type="time" name="hora_entrada" min="09:00" max="22:00" value="10:00">
+                            <label for="hora_salida">Hora de salida</label><input type="time" name="hora_salida" min="10:00" max="22:00" value="13:00">
                             <input type="button" onclick="calcular()" value="Coger Aula"></input>
                         </td>
 
