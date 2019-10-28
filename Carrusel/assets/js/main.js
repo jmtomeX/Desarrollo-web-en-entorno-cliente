@@ -57,3 +57,37 @@ function moveOpacity() {
     carrusel.style.opacity = rango;
     console.log(rango);
 }
+/*Un pequeño formulario con dos botones de opción para indicar si te gusta más la música o el deporte,
+y luego una barra indicadora para cada opción que vaya creciendo cada vez que le den al botón Votar. */
+
+var valor = 10;
+var sumaValor1 = 0;
+var sumaValor2 = 0;
+var totalVal = 0;
+var cont1 = 0;
+var cont2 = 0;
+
+function selectOption(barra) {
+    var barraDeporte = document.getElementById('barraDep');
+    var barraMusica = document.getElementById('barraMusc');
+    var caja1 = document.getElementById('caja1');
+    var caja2 = document.getElementById('caja2');
+    if (barra == 1) {
+        sumaValor1 = parseInt(sumaValor1 + valor);
+        console.log(sumaValor1);
+        cont1 = sumaValor1 / 10;
+    } else {
+        sumaValor2 = parseInt(sumaValor2) + valor;
+        console.log(sumaValor1);
+        cont2 = sumaValor2 / 10;
+    }
+    totalVal = sumaValor1 + sumaValor2;
+    var porcVal1 = sumaValor1 / totalVal * 500;
+    var porcVal2 = sumaValor2 / totalVal * 500;
+    barraDeporte.style.width = porcVal1 + "px";
+    barraMusica.style.width = porcVal2 + "px";
+    caja1.innerHTML = cont1;
+    caja2.innerHTML = cont2;
+
+
+}

@@ -32,12 +32,36 @@
             height: 150px;
             padding-top: 2em;
         }
+        
+        .barra {
+            width: 500px;
+            height: 1em;
+            background: red;
+            margin-bottom: 2em;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
+            <!-- **********************************  -->
+            <div class="col s12 ">
+                <h2>¿Qué te gusta más la música o el deporte?</h2>
+            </div>
+            <div class="col s12 l12 xl2">
+                <button class="waves-effect waves-light btn space" onclick="selectOption(1)" id="deporte">Deporte</button></div>
+            <div class="col s12 l12 xl8 waves-light ">
+                <div id="barraDep" class="barra"></div>
+                <div class="" id="caja2">0</div>
+            </div>
+            <div class="col s12 l12 xl2">
+                <button class="waves-effect waves-light btn space" onclick="selectOption(2)" id="musica">Música</button></div>
+            <div class="col s12 l12 xl8 waves-light">
+                <div id="barraMusc" class="barra"></div>
+                <div class="" id="caja1">0</div>
+            </div>
+            <!-- *********************************** -->
 
             <div class="col s12 l4" id="mumero_img">
                 <h2 id="num">1</h2>
@@ -65,18 +89,21 @@
                 <button class="waves-effect waves-light btn space" onclick="showImage()">Mostrar</button></div>
             <div class="col s12 m6 l2">
                 <button class="waves-effect waves-light btn space" onclick="hiddenImage()">Ocultar</button></div>
+            <form action="#">
+                <p class="range-field">
+                    <input type="range" id="rango" min="0" max="1" step="0.1" value="" onchange="moveOpacity()" />
+                </p>
+                <!-- Un pequeño formulario con dos botones de opción para indicar si te gusta más la música o el deporte, 
+                 y luego una barra indicadora para cada opción que vaya creciendo cada vez que le den al botón Votar. */ -->
+
+
+            </form>
         </div>
-        <div class="col s12"></div>
-        <form action="#">
-            <p class="range-field">
-                <input type="range" id="rango" min="0" max="1" step="0.1" value="" onchange="moveOpacity()" />
-            </p>
-        </form>
     </div>
     </div>
     </div>
-    </div>
+
     <script src="./assets/js/main.js"></script>
 </body>
 
-</html
+</html>
