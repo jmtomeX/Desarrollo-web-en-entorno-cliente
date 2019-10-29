@@ -18,7 +18,7 @@ function cargarImg() {
       document.write("<div class = 'row'>");
     }
     document.write(
-      "<div class='col s12  xl4'><img src='./img/" +
+      "<div class='col s12  xl4 popshadow'><img src='./img/" +
         fotosArray[i] +
         "' alt='' class = 'imgGallery' onclick = 'addBorder(this)'></div>"
     );
@@ -65,7 +65,7 @@ function quitarSelecciones() {
 function hacerPedido() {
   var cadena = "";
   for (var i = 0; i < imgSeleccionadas.length; i++) {
-    cadena += imgSeleccionadas[i] + "/\n";
+    cadena += imgSeleccionadas[i] + "<br>";
   }
 
   document.getElementById("imgModal").innerHTML = cadena;

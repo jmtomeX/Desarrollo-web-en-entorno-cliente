@@ -36,7 +36,7 @@
         .barra {
             width: 500px;
             height: 1em;
-            background: red;
+            background:#2bbbad;
             margin-bottom: 2em;
         }
     </style>
@@ -49,18 +49,22 @@
             <div class="col s12 ">
                 <h2>¿Qué te gusta más la música o el deporte?</h2>
             </div>
+            <div class="row">
             <div class="col s12 l12 xl2">
                 <button class="waves-effect waves-light btn space" onclick="selectOption(1)" id="deporte">Deporte</button></div>
             <div class="col s12 l12 xl8 waves-light ">
-                <div id="barraDep" class="barra"></div>
-                <div class="" id="caja2">0</div>
+                <div id="barraDep" class="barra col s12 l12 xl10"></div>
+                <div class="col s12 l12 xl2" ><h5 id="caja1">0</h5></div>
             </div>
+        </div>
+        <div class="row">
             <div class="col s12 l12 xl2">
                 <button class="waves-effect waves-light btn space" onclick="selectOption(2)" id="musica">Música</button></div>
             <div class="col s12 l12 xl8 waves-light">
-                <div id="barraMusc" class="barra"></div>
-                <div class="" id="caja1">0</div>
+                <div id="barraMusc" class="barra col s12 l12 xl10"></div>
+                <div class="col s12 l12 xl2" ><h5 id="caja2">0</h5></div>
             </div>
+        </div>
             <!-- *********************************** -->
 
             <div class="col s12 l4" id="mumero_img">
