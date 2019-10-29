@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        //var cajaTamanho = $(valorTamanho).val;
+        $(function() {
+            $("#foto").width(500),
+                $("#foto").height(500),
+                $("#foto").hide(5000),
+                $("#caja").append("<p>append</p>"),
+                $("#caja").before("<p>before</p>"),
+                $("#caja").prepend("<p>prepend</p>"),
+
+                $("#mostrar").click(function() {
+                    $("#foto2").show(1500)
+                }),
+                $("#ocultar").click(function() {
+                    $("#foto2").hide(1500)
+                }),
+                $("#valorTamanho").blur(function() {
+                    var valor = $("#valorTamanho").val();
+                    console.log(valor);
+                    $("#foto3").width(parseInt(valor));
+                }),
+                $("#selectColor").change(function() {
+                    var selectColor = $("#selectColor").val();
+                    $("#foto3").css("border", '2px solid ' + selectColor);
+
+                }),
+
+                $("#botonColor").click(function() {
+                    var selectColor = $("#selectColor").val();
+                    $("#foto3").css("border", '2px solid ' + selectColor);
+                    console.log(selectColor);
+                })
+
+        });
+    </script>
+</head>
+
+<body>
+    <img id="foto" src="../img/OCCAM_M10.jpg" alt="">
+    <h1 id="caja">Append</h1>
+    <input type="button" value="Mostrar" id="mostrar">
+    <input type="button" value="Ocultar" id="ocultar">
+    <img id="foto2" src="../img/ORCA_M20iLTD.jpg" width="500" alt="">
+    <img id="foto3" src="../img/ORCA_M20iLTD.jpg" width="500" alt="">
+    <input type="text" id="valorTamanho" value="Insertar tamaño y salir">
+    <p>
+        <h4>Elegir color para poner borde</h4>
+        <select id="selectColor">
+            <option value="red">Rojo</option>
+            <option value="blue">Azul</option>
+            <option value="pink">Rosa</option>
+            <option value="purple">Morado</option>
+        </select>
+        <input type="button" value="Color" id="botonColor">
+    </p>
+</body>
+
+</html>

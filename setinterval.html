@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><img id="foto" src="./img/OCCAM_M10.jpg" alt="" width="600"></p>
+    <h2>Ejemplo Opacidad Automático</h2>
+    <input type="button" value="Iniciar" onclick="iniciar()">
+    <input type="button" value="Parar" onclick="parar()">
+    <script>
+        var stop = "";
+        var valor = 1;
+
+        function iniciar() {
+            var foto = document.getElementById("foto");
+            foto.style.opacity = valor;
+            stop = setInterval(function() {
+                    valor -= 0.2;
+                    valor = Math.round(valor * 100) / 100;
+                    console.log(valor);
+                    foto.style.opacity = foto.style.opacity = valor;
+                    if (valor == 0) {
+                        valor = 1;
+                    }
+                },
+                1000
+            );
+        }
+
+        function parar() {
+            clearInterval(stop);
+        }
+    </script>
+</body>
+
+</html>
