@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <script src="./jquery-3.4.1.js"></script>
+    <title>Acierta nombres</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Oswald', sans-serif;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0px;
+        }
+        
+        h3 {
+            color: orangered;
+            cursor: cell;
+        }
+        
+        .boton {
+            font-size: 1em;
+            color: white;
+            background: orangered;
+            border: 1px solid black;
+            border: 25px;
+            width: 150px;
+            height: 30px;
+            padding: .3em;
+            margin-right: .6em;
+        }
+        
+        .boton:hover {
+            opacity: .9;
+        }
+        
+        .nombres {
+            height: 400px;
+        }
+        
+        .cajas_texto {
+            height: 150px;
+        }
+    </style>
+    <script>
+        $(function() {
+            var nombres = [];
+            var cont = 0;
+            $("h3").click(function() {
+                $(this).css("text-decoration", "line-through");
+                nombres[cont] = $(this).text();
+                cont++;
+            });
+            $("#btn-ocultar").click(function() {
+                $(".oculto").hide(1000);
+                console.log(nombres);
+
+                // añadir dinamicamente inputs de tipo texto
+                var input_text = "";
+                for (let i = 0; i < nombres.length; i++) {
+                    input_text = "<input class='boton' type='text' name='caja_texto" + i +
+                        "' id='caja_texto" + i + "'>";
+                    $(".cajas_texto").append(input_text);
+                }
+
+            });
+
+            //$(":text")
+
+            $("#btn-mostrar").click(function() {
+                $(".oculto").show(1000);
+                var largo_array = nombres.length;
+                for (let i = 0; i < largo_array; i++) {
+                    var caja = "#caja_texto" + i;
+                    var nombre = $(caja).val();
+                    var result = nombres.indexOf(nombre);
+                    if (result >= 0) {
+                        alert("Has acertado");
+                        nombres.splice(result, 1);
+                        $(caja).hide();
+                        $("h3").css("text-decoration", "");
+                        console.log(nombres);
+                    } else {
+                        alert("El nombre no está");
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Acuerdate de los nombres marca, oculta y acierta.</h1>
+    <div class="nombres">
+        <h3 class="oculto">Michael Jordan</h3>
+        <h3 class="oculto">Muhammad Ali</h3>
+        <h3 class="oculto">Alejandro Valverde</h3>
+        <h3 class="oculto">Michael Phelps</h3>
+        <h3 class="oculto">Michael Schumacher</h3>
+        <h3 class="oculto">Mikel Landa</h3>
+        <h3 class="oculto">Tiger Woods</h3>
+        <button class="boton oculto" id="btn-ocultar">Ocultar</button>
+    </div>
+    <div class="cajas_texto"></div>
+    <button class="boton" id="btn-mostrar">Mostrar</button>
+</body>
+
+</html>

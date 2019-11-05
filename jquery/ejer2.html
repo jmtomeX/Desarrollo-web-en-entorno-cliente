@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0px;
+        }
+        
+        .container {
+            justify-content: center;
+        }
+        
+        .principal {
+            padding: 1em;
+        }
+        
+        .foto {
+            width: 15%;
+            height: 120px;
+            opacity: .8;
+        }
+        
+        h3 {
+            text-align: center;
+        }
+        
+        .text {
+            height: 40px;
+        }
+    </style>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        var name = "";
+        $(function() {
+            $(".foto").mouseover(function() {
+                $(this).css("opacity", 1);
+                name = $(".text").html(this.name);
+                $(this).css("border", "5px solid red");
+            });
+            $(".foto").mouseout(function() {
+                $(this).css("opacity", 0.8);
+                $(".text").html("");
+                $(this).css("border", "");
+            });
+
+            $("#formato").change(function() {
+                $(".foto").css("border-radius", $("#formato").val());
+                alert($("#formato").val())
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Una página en la que a modo de portada aparezca una imagen en la parte de arriba, y luego debajo aparezcan 6 imágenes más o menos pequeñas seguidas.
+        Por defecto todas ellas que aparezcan con una opacidad del 80%, y al pasar por encima el ratón se pongan al 100% y que aparezca un cuadro de borde 5px de color azul.
+        Luego aparecerá un desplegable para elegir la forma de mostrar las imágenes de abajo, si van a ser redondeadas o normales como están por defecto. 
+        Cuando cambien la selección es cuando se producirá el cambio. -->
+    <div id="container">
+        <img src="./img/1.jpg" alt="">
+        <section class="principal">
+            <img src="./img/2.jpg" alt="" class="foto" name="foto 1">
+            <img src="./img/3.jpg" alt="" class="foto" name="foto 2">
+            <img src="./img/4.jpg" alt="" class="foto" name="foto 3">
+            <img src="./img/5.jpg" alt="" class="foto" name="foto 4">
+            <img src="./img/6.jpg" alt="" class="foto" name="foto 5">
+            <img src="./img/7.jpg" alt="" class="foto" name="foto 6">
+        </section>
+        <h3 class="text"></h3>
+        <form name="form1" method="post" action="">
+            <select name="formato" id="formato">
+                <option value="0%" selected>Normal</option>
+                <option value="50%">Circular</option>
+            </select>
+        </form>
+    </div>
+</body>
+
+</html>
