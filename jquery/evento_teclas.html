@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="jquery-3.4.1.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0px;
+        }
+        
+        #caja {
+            width: 50%;
+            height: 600px;
+        }
+        
+        input[type="text"] {
+            margin-bottom: 2em;
+            ;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#foto").click(function() {
+                $(this).slideUp(10000);
+            });
+
+            $("#pause").click(function() {
+                $("#foto").stop(true);
+            });
+            $("#play").click(function() {
+                $("#foto").slideUp(10000);
+            });
+
+
+            $("#entrada").keydown(function(event) {
+                if (event.which == 32) $("#foto").stop();
+                $("p").append("Has pulsado el espacio " + String.fromCharCode(event.which) + " y su codigo es: " + event.which + "<br>");
+
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="caja">
+        <img src="./img/2.jpg" alt="Montaña" id="foto">
+    </div>
+    <input type="text" name="entrada" id="entrada"><br>
+    <input type="button" value="Pause" id="pause">
+    <input type="button" value="Play" id="play">
+    <p></p>
+</body>
+
+</html>

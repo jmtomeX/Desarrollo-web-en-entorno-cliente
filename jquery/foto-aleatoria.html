@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <script src="./jquery-3.4.1.js"></script>
+    <title>Acierta nombres</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Oswald', sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+            margin: 2em;
+        }
+        
+        .caja {
+            height: 300px;
+        }
+        
+        img {
+            width: 300px;
+            height: 270px;
+        }
+        
+        main {
+            width: 60%;
+        }
+        
+        .caja1 {
+            width: 40%;
+            height: 300px;
+            float: left;
+            border-color: red;
+            border-bottom-style: solid;
+            border-radius: 1px;
+            margin-right: 1em;
+        }
+        
+        label {
+            float: left;
+            clear: left;
+            margin: 1em;
+        }
+        
+        .caja1 input {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        $(function() {
+            var nombreFoto = "";
+            var imagen = $("#imagen")
+            var arrayImg = ["1.jpg", "2.jpg", "3.jpg"];
+            var foto = Math.floor((Math.random() * 2) + 0);
+            $("#imagen").attr("src", "./img/" + arrayImg[foto]);
+            $("#imagen").slideUp(3000);
+
+            console.log(arrayImg[foto]);
+
+            $("#caja_texto").blur(function() {
+                nombreFoto = $("#caja_texto").val();
+                if (nombreFoto != arrayImg[foto]) {
+                    $(this).css("border", "1px solid red");
+                } else {
+                    $("#result").html('<h1>Correcto¡¡¡¡</h1>');
+                }
+            });
+
+            function comprobar() {
+                if (correct == 2) {
+                    $(".oculta").prop('disabled', false);
+                }
+            };
+            // comprobar user y pin
+            var correct = 0;
+            $(".oculta").prop('disabled', true);
+            $("#usuario").blur(function() {
+                var user = $("#usuario").val();
+                if (user == "jm") {
+                    correct++;
+                    $("#usuario").prop('disabled', true);
+                    comprobar();
+                }
+            });
+            $("#pin").blur(function() {
+                var user = $("#pin").val();
+                if (user == "1234") {
+                    correct++;
+                    $("#pin").prop('disabled', true);
+                    comprobar();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <main>
+        <p>Que aparezca una foto aleatoria de 3 posibles, cada una tendrá su nombre, y durante 3 segundos vaya desapareciendo. Luego tiene que situarse el cursor en un cuadro de texto, escribes el nombre de la foto y al salir del foco si es correcta aparezca
+            un texto en H1 indicándolo, y si has fallado vuelva el foco y aparezca el cuadro con bordes rojos.</p>
+        <div class="caja">
+            <img src="" alt="" id="imagen">
+        </div>
+        <label for="texto">Escribe el nombre de la imagen </label><input type="text" id="caja_texto">
+        <div id="result"></div>
+        <p>Tenemos un formulario con estos campos Usuario y Pin. Y luego debajo nombre, apellidos y edad. Inicialmente sólo podrán escribir en el usuario y pin, los otros estarán deshabilitados. Cuando sean correctos que se habiliten, y después al darle
+            a un botón de envio, nos salgan los datos.</p>
+        <div class="caja1">
+            <form>
+                <label for="nombre">Nombre<input type="text" name="usuario" id="usuario"></label>
+                <label for="pin">Pin<input type="text" name="pin" id="pin"></label>
+
+            </form>
+        </div>
+        <div class="caja1">
+            <form>
+                <label for="nombre">Nombre<input type="text" name="nombre" id="nombre" class="oculta"></label>
+                <label for="apellidos">Apellidos<input type="text" name="apellidos" id="apellidos"
+                        class="oculta"></label>
+                <label for="edad">Edad<input type="number" name="edad" id="edad" class="oculta"></label>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <script src="jquery-3.4.1.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#cuadro").keydown(function(event) {
+                $("#parrafo").append("El caracter de la tecla es " + String.fromCharCode(event.which) + " y su codigo es: " + event.which + "<br>");
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <p>Presiona una tecla cualquiera.
+        <input name="cuadro" type="text" id="cuadro"></p>
+    <h3 id="parrafo"></h3>
+</body>
+
+</html>

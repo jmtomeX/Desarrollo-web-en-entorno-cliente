@@ -10,6 +10,8 @@
     <title>Acierta nombres</title>
     <style>
         * {
+            padding: 0;
+            margin: 0;
             box-sizing: border-box;
         }
         
@@ -22,16 +24,29 @@
         }
         
         h3 {
-            color: orangered;
             cursor: cell;
+            margin-bottom: .6em;
+        }
+        
+        h3,
+        .cajas_texto>h1 {
+            color: orangered;
         }
         
         .boton {
             font-size: 1em;
             color: white;
             background: orangered;
-            border: 1px solid black;
             border: 25px;
+            width: 150px;
+            height: 30px;
+            padding: .3em;
+            margin-right: .6em;
+        }
+        
+        .cajas {
+            font-size: 1em;
+            border: 1px solid black;
             width: 150px;
             height: 30px;
             padding: .3em;
@@ -66,13 +81,13 @@
                 // añadir dinamicamente inputs de tipo texto
                 var input_text = "";
                 for (let i = 0; i < nombres.length; i++) {
-                    input_text = "<input class='boton' type='text' name='caja_texto" + i +
+                    input_text = "<input class='cajas' type='text' name='caja_texto" + i +
                         "' id='caja_texto" + i + "'>";
                     $(".cajas_texto").append(input_text);
                 }
 
             });
-
+            // cOger atributos de etiquetas html
             //$(":text")
 
             $("#btn-mostrar").click(function() {
@@ -86,11 +101,14 @@
                         alert("Has acertado");
                         nombres.splice(result, 1);
                         $(caja).hide();
-                        $("h3").css("text-decoration", "");
                         console.log(nombres);
                     } else {
-                        alert("El nombre no está");
+                        $(".cajas_texto").html('<h1>El nombre no está,perdiste.</h1>');
                     }
+                    $("h3").css("text-decoration", "");
+                    nombres.splice(0, nombres.length);
+                    console.log(nombres);
+
                 }
             });
         });
