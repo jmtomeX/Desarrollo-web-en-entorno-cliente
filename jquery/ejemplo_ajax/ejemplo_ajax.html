@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulmaswatch/0.7.2/default/bulmaswatch.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <script>
+        $(function() {
+
+            $('#buton').click(function() {
+                $('#mostrar').html('<img src="./img/loader.gif" alt="" width= "400">');
+                $.ajax({
+                    type: "GET",
+                    url: "./ajax.php",
+                    success: function(data) {
+                        console.log(data);
+                        $('#mostrar').html('');
+                        //$('#mostrar').load(data);
+                        $('#mostrar').html(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+    <style>
+        body {
+            padding: 3em;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="columns is-desktop">
+        <div class="column">
+            <a href="#" class="button is-success is-light" id="buton">
+                <i class="fa fa-eye"></i> Cargar Página
+            </a>
+        </div>
+        <div id="mostrar" class="column1"></div>
+    </div>
+
+</body>
+
+</html>
