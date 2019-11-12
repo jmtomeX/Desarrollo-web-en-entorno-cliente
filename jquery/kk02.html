@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        #foto {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        
+        img {
+            height: 250px;
+            position: absolute;
+            width: 250px;
+            opacity: 1;
+        }
+        
+        h1 {
+            top: 1em;
+            left: 1em;
+            opacity: .3;
+        }
+        
+        #foto1 {
+            left: 50px;
+        }
+        
+        #foto2 {
+            left: 320px;
+        }
+        
+        #foto3 {
+            left: 590px;
+        }
+        
+        #foto4 {
+            left: 860px;
+        }
+        
+        #foto5 {
+            left: 1130px;
+        }
+    </style>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+            var ventana_ancho = $(window).width();
+            var ventana_alto = $(window).height();
+            $("img").click(function() {
+                $(this).animate({
+                    "top": ventana_alto / 2 - 125,
+                    "left": ventana_ancho / 2 - 125,
+                }, 2000);
+
+                $(this).animate({
+                    "opacity": 0
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <img src="./img/1.jpg" alt="" id="foto1" name="foto 1">
+    <img src="./img/2.jpg" alt="" id="foto2" name="foto 2">
+    <img src="./img/3.jpg" alt="" id="foto3" name="foto 3">
+    <img src="./img/4.jpg" alt="" id="foto4" name="foto 4">
+    <img src="./img/5.jpg" alt="" id="foto5" name="foto 5">
+
+</body>
+
+</html>

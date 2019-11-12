@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        #foto {
+            position: absolute;
+            top: 150px;
+            left: 150px;
+        }
+        
+        h1 {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            opacity: .3;
+        }
+    </style>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+            $("h1").animate({
+                "font-size": "100px",
+            }, 4000);
+
+            $("#foto").animate({
+                "top": "400px"
+            }, 2000);
+
+            $("#foto").animate({
+                "left": "1300px"
+            }, 2000);
+
+            $("h1").animate({
+                "left": "500px",
+            }, 2000);
+            $("h1").animate({
+                "opacity": "1",
+            }, 2000);
+            $("#foto2").addClass("slideOutDown");
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <h1>Foto montaña</h1>
+    <img src="./img/2.jpg" alt="" id="foto" name="foto 1" width="400" height="350">
+    <img src="./img/1.jpg" alt="" id="foto2" name="foto2" width="400" height="350" class="animated infinite">
+    <h3 class="animated infinite pulse delay-2s">Example</h3>
+</body>
+
+</html>

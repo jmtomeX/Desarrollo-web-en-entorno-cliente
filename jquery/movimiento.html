@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        #foto {
+            position: absolute;
+            top: 150px;
+            left: 150px;
+        }
+        
+        h1 {
+            position: relative;
+        }
+    </style>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+
+            $("#posicion").click(function() {
+                // var posx = ($("#foto").position().left);
+                // var posy = ($("#foto").position().top);
+                var posx = ($("#foto").css("left"));
+                var posy = ($("#foto").css("top"));
+                alert("La posición es " + posx + " " + posy);
+            });
+
+            /*  $("#derecha").click(function() {
+                  $("#foto").animate({
+                      "left": "550px"
+                  });
+              });*/
+            $("#derecha").click(function() {
+                $("#foto").animate({
+                    "left": "+=50px",
+                    "opacity": "-=.1"
+                }, 2000);
+            });
+            $("#izquierda").click(function() {
+                $("#foto").animate({
+                    "left": "-=50px",
+                    "opacity": "+=.1"
+                }, 2000);
+            });
+            $("#texto").click(function() {
+                $("h1").animate({
+                    "font-size": "-=5px",
+                }, 2000);
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <h1>Foto montaña</h1>
+    <img src="./img/2.jpg" alt="" id="foto" name="foto 1">
+    <input type="button" value="Ver posición" id="posicion" name="posicion"></input>
+    <input type="button" value="Izquierda" id="izquierda" name="izquierda"></input>
+    <input type="button" value="Derecha" id="derecha" name="derecha"></input>
+    <input type="button" value="Texto font-size" id="texto" name="texto"></input>
+</body>
+
+</html>

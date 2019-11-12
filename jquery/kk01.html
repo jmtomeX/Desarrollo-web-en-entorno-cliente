@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        #foto {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        
+        h1 {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            opacity: .3;
+        }
+    </style>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+            var ventana_ancho = $(window).width();
+            var ventana_alto = $(window).height();
+            ventana_ancho -= 450;
+            ventana_alto -= 400;
+
+            $("img").click(function() {
+                $("#foto").delay(1000).animate({
+                    "left": ventana_ancho
+                }, 2000);
+
+
+                $("#foto").animate({
+                    "top": ventana_alto
+                }, 2000);
+
+                $("#foto").animate({
+                    "left": 50
+                }, 2000);
+
+                $("#foto").animate({
+                    "top": 50
+                }, 2000);
+
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <img src="./img/2.jpg" alt="" id="foto" name="foto 1" width="400" height="350">
+
+</body>
+
+</html>
