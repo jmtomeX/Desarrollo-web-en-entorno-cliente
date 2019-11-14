@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="./jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="./jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <title>Document</title>
+    <style>
+        #container {
+            width: 100vw;
+            height: 100vh;
+            background: url("../img/porteria.png") fixed;
+            position: absolute;
+        }
+        
+        #balon {
+            position: relative;
+            width: 50px;
+        }
+        
+        #posted {
+            position: relative;
+            width: 100px;
+            height: 68px;
+            border: 1px solid #000;
+            top: -54px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <img id="balon" src="../img/balon.png" alt="">
+    <div id="posted"></div>
+
+    <script>
+        $(function() {
+            var ventana_ancho = $(window).width();
+            var ventana_alto = $(window).height();
+            var i = 0;
+            while (i < 10) {
+                i++;
+                var ancho = $(window).width() - 100;
+                $("#posted").animate({
+                    "left": ancho
+                }, 5000);
+                $("#posted").animate({
+                    "left": 0
+                }, 5000);
+            }
+
+            $("#balon").css({
+                "top": ventana_alto / 2 - 50
+            });
+            $("#balon").css({
+                "left": ventana_ancho / 2 - 50,
+            });
+
+
+            $("#balon").draggable({
+                revert: "invalid"
+            });
+            //contenedor
+            $("#posted").droppable({
+                accept: "#balon"
+            });
+            $("#posted").on("drop", function() {
+                alert("Dentro")
+            });
+            // fin contenedor
+
+
+        });
+    </script>
+</body>
+
+</html>

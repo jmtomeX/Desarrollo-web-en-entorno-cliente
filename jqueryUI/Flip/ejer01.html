@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <style>
+        #card {
+            width: 250px;
+            height: 250px;
+        }
+        
+        .front {
+            background: blueviolet;
+        }
+        
+        .back {
+            background: orange;
+        }
+        
+        img {
+            width: inherit;
+            height: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="card">
+        <div class="front">
+            <img src="../../img/1.jpg" alt="" width="250" height="200">
+        </div>
+        <div class="back">
+            <img src="../../img/2.jpg" alt="" width="250" height="200">
+        </div>
+    </div>
+
+    <button type="button" id="llamar">Llamar</button>
+</body>
+<script>
+    $(function() {
+
+        $("#card").flip({
+            trigger: "manual"
+        });
+        $("#llamar").click(function() {
+            $("#card").flip("toggle");
+
+            // $("#card").flip({
+            //     trigger: "manual",
+            //     speed: 1000,
+            //     axis: "X"
+            // });
+            // $("#card1").flip({
+            //     trigger: "manual",
+            //     speed: 1000,
+            //     axis: "X",
+
+            // });
+            //});
+        });
+    });
+</script>
+
+</html>

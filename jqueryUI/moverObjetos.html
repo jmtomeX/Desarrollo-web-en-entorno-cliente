@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="./jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="./jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 250px;
+        }
+        
+        #foto1 {
+            position: absolute;
+            border: 1px solid black;
+        }
+        
+        #foto {
+            margin-left: 500px;
+        }
+        
+        .caja {
+            width: 300px;
+            height: 300px;
+            background: chartreuse;
+            border: 2px solid black;
+            margin-left: 50px;
+            background: url("../img/ORCA_M20iLTD.jpg") no-repeat fixed center;
+        }
+        
+        #feedback {
+            font-size: 1.4em;
+        }
+        
+        #selectable .ui-selecting {
+            background: #FECA40;
+        }
+        
+        #selectable .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+        
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+        
+        #selectable li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="foto1" src="../img/OCCAM_M10.jpg" alt="">
+    <img id="foto" src="../img/2.jpg" alt="">
+    <br>
+    <img id="foto2" src="../img/ORCA_M20iLTD.jpg" alt="">
+    <div class="caja">
+        <ol id="selectable">
+            <li class="ui-widget-content">Item 1</li>
+            <li class="ui-widget-content">Item 2</li>
+            <li class="ui-widget-content">Item 3</li>
+            <li class="ui-widget-content">Item 4</li>
+            <li class="ui-widget-content">Item 5</li>
+            <li class="ui-widget-content">Item 6</li>
+            <li class="ui-widget-content">Item 7</li>
+        </ol>
+    </div>
+
+
+    <script>
+        $(function() {
+            $("#foto").draggable({
+                revert: true
+            });
+            $("#foto2").draggable({
+                revert: true
+            });
+
+            //contenedor
+            $("#foto1").droppable({
+                tolerance: "fit",
+                accept: "#foto"
+            });
+            $("#foto1").on("drop", function() {
+                alert("Dentro")
+            });
+            // fin contenedor
+
+            $(".caja").resizable();
+
+            $("#selectable").selectable();
+        });
+    </script>
+</body>
+
+</html>
