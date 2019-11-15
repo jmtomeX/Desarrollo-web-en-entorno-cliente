@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="../../jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css">
+
+    <script src="../../jqueryUI/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <title>Document</title>
+    <style>
+        .ui-textfield {
+            background: none;
+            outline: none;
+            cursor: text;
+            border-radius: 5px 5px 5px 5px;
+            color: #393939;
+            font-size: 12px;
+            padding: 5px;
+            margin-top: 1em;
+            margin-right: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Ferrari Roma</a></li>
+            <li><a href="#tabs-2">Hiundai Inyección Multipunto</a></li>
+            <li><a href="#tabs-3">Hiundai 1.0 TGDI 74kW100CV Tecno DT 2C</a></li>
+            <li><a href="#tabs-4">Hiundai 2.2 CRDi Klass</a></li>
+        </ul>
+        <div id="tabs-1">
+            <ul>
+                <li>El nuevo Ferrari Roma cuenta con el mismo V8 de 3.9 litros</li>
+                <li>Doble turbo que emplean varios modelos de la marca y que estrenó el ya desaparecido Ferrari 488 GTB.
+                </li>
+                <li>Bajo el capó del Portofino este V8 entrega 600 caballos y en su configuración</li>
+                <li>Más potente, las empleadas por el Ferrari 488 Pista y F8 Tributo, este bloque presume de 720 CV.
+                </li>
+            </ul>
+            <h2>Precio 900 / día</h2>
+        </div>
+        <div id="tabs-2">
+            <h2></h2>
+            <ul>
+                <li>MOTORV12, 60°, MPI (Inyección Multipunto)</li>
+                <li>CILINDRADA6498 cm³</li>
+                <li>CALIBRE X CARRERA95 mm x 76,4 mm (3,74 x 3,01 in)</li>
+                <li>RELACIÓN DE COMPRESIÓN11,8 ± 0,2</li>
+                <li>MÁX. POTENCIA770 CV (566 kW) a 8500 rpm</li>
+                <li>MÁX. PAR720 Nm a 6750 rpm</li>
+                <li>RELACIÓN PESO/POTENCIA2,04 kg/CV</li>
+                <li>LUBRICACIÓNCárter seco</li>
+                <li>SISTEMA DE CONTROL DE LAS EMISIONES</li>
+                <h2>Precio 120 / día</h2>
+            </ul>
+        </div>
+        <div id="tabs-3">
+
+            <li>Versión:</li>
+            <li>1.0 TGDI 74kW100CV Tecno DT 2C</li>
+            <li>Combustible:</li>
+            <li>Gasolina</li>
+            <li>Potencia Máxima:</li>
+            <li>100 cv</li>
+            <li> Par Máximo:</li>
+            -
+            <li> Nº de cilindros:</li>
+            <li> 3 En lÍnea</li>
+            <li>Cilindrada:</li>
+            <li> 998 cc</li>
+            <li>Distribución:</li>
+            -
+            <li>Alimentación:</li>
+            <li>Gasolina- inyección directa</li>
+            <li>Tracción:</li>
+            <li> Delantera</li>
+            <li> Caja de cambios:</li>
+            <li> Manual 7 velocidades</li>
+            <h2>Precio 90 / día</h2>
+        </div>
+        <div id="tabs-4">
+
+            <li>Versión: 2.2 CRDi Klass 4x2 SR</li>
+            <li>Combustible: Diesel</li>
+            <li>Potencia Máxima: 200 cv </li>
+            <li>Par Máximo: - Nº de cilindros: 4 </li>
+            <li>En lÍnea Cilindrada: 2.199 cc</li>
+            <li> Distribución: - </li>
+            <li>Alimentación: Diesel "Common rail" </li>
+            <li>Tracción: Delantera </li>
+            <li>Caja de cambios: Manual 6 velocidades</li>
+            <h2>Precio 150 / día</h2>
+        </div>
+    </div>
+
+    <select id="coches" class="ui-textfield">
+        <option value="900">Ferrari Roma</option>
+        <option value="120">Hiundai Inyección Multipunto</option>
+        <option value="90">Hiundai 1.0 TGDI 74kW100CV Tecno DT 2C</option>
+        <option value="150">Hiundai 2.2 CRDi Klass</option>
+        <label for="recogida"></label><input class="ui-textfield" type="date" name="recogida" id="recogida">
+        <label for="entrega"></label><input class="ui-textfield" type="date" name="entrega" id="entrega">
+        <input type="button" value="Calcular" id="boton">
+    </select>
+    <script>
+        $(function() {
+            var recogida = $("#recogida").val();
+            recogida = moment(recogida);
+
+            var entrega = $("#entrega").val();
+            entrega = moment(entrega);
+
+
+            var dias_totales = entrega.diff(recogida, 'days');
+
+            $("#tabs").tabs();
+            $("#boton").click(function() {
+                var precio_dia = $("#coches").val();
+                console.log(precio_dia * dias_totales)
+            });
+        });
+    </script>
+</body>
+
+</html>
