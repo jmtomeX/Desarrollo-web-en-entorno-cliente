@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Acierta discos</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
+    <link rel="stylesheet" href="../jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="../jqueryUI/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <style>
+        #container {
+            display: flex;
+        }
+        
+        .contain {
+            flex-direction: column;
+        }
+        
+        #caja1 {
+            float: left;
+            margin-right: 400px;
+        }
+        
+        .caja2 {
+            margin-left: 400px;
+            flex-direction: column;
+            width: 400px;
+        }
+        
+        #card-1,
+        #card-2,
+        #card-3,
+        #card-4 {
+            top: 10px;
+            height: 150px;
+            width: 200px;
+            margin-right: 1em;
+        }
+        
+        #card-1,
+        #img1 {
+            order: 1;
+        }
+        
+        #card-2,
+        #img3 {
+            order: 2;
+        }
+        
+        #card-3,
+        #img3 {
+            order: 3;
+        }
+        
+        #card-4,
+        #img4 {
+            order: 4;
+        }
+        
+        div[id^="nx"] {
+            border: 1px solid red;
+            margin-bottom: 1em;
+            width: 200px;
+            height: 100px;
+            padding: 1em;
+        }
+        
+        div[id^="nx"]:first-of-type {
+            margin-top: 1em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="card-1">
+            <div class="front">
+                <img src="./img/discos/Pungent Stench - For God Your Soul.jpg" width="200" height="150">
+            </div>
+            <div class="back">
+                <h3>Pungent Stench</h3>
+                <h4>For God Your Soul</h4>
+            </div>
+        </div>
+
+        <div id="card-2">
+            <div class="front">
+                <img src="./img/discos/gorefest Erase.jpg" width="200" height="150">
+            </div>
+            <div class="back">
+                <h3>gorefest </h3>
+                <h4>Erase</h4>
+            </div>
+        </div>
+        <div id="card-3">
+            <div class="front">
+                <img src="./img/discos/macabre sinister slaughter.jpg" width="200" height="150">
+            </div>
+            <div class="back">
+                <h3>macabre </h3>
+                <h4>sinister slaughter</h4>
+            </div>
+        </div>
+        <div id="card-4">
+            <div class="front">
+                <img src="./img/discos/bad-religion-stranger-than-fiction.jpg" width="200" height="150">
+            </div>
+            <div class="back">
+                <h3>bad religion </h3>
+                <h4>stranger than fiction</h4>
+            </div>
+        </div>
+    </div>
+    <br>
+    <input type="text" name="segundos" id="segundos" value="1">
+    <input type="button" value="Jugar" name="jugar" id="jugar">
+    <br><br>
+    <div id="caja1">
+        <div id="contain-1">
+            <div id="nx1">
+                <h3>Pungent Stench</h3>
+                <h4>For God Your Soul</h4>
+            </div>
+        </div>
+        <div id="contain-2">
+            <div id="nx2">
+                <h3>macabre </h3>
+                <h4>sinister slaughter</h4>
+            </div>
+        </div>
+        <div id="contain-3">
+            <div id="nx3">
+                <h3>bad religion </h3>
+                <h4>stranger than fiction</h4>
+            </div>
+        </div>
+        <div id="contain-4">
+            <div id="nx4">
+                <h3>Gorefest </h3>
+                <h4>Erase</h4>
+            </div>
+        </div>
+    </div>
+    <div id="caja2">
+        <div>
+            <img id="img3" src="./img/discos/bad-religion-stranger-than-fiction.jpg" width="150" height="100">
+        </div>
+        <div>
+            <img id="img1" src="./img/discos/Pungent Stench - For God Your Soul.jpg" width="150" height="100"></div>
+        <div>
+            <img id="img4" src="./img/discos/gorefest Erase.jpg" width="150" height="100">
+        </div>
+        <div>
+            <img id="img2" src="./img/discos/macabre sinister slaughter.jpg" width="150" height="100"></div>
+
+    </div>
+    <script>
+        $(function() {
+            var tiempo = 0;
+            $("#jugar").click(function() {
+                tiempo = $("#segundos").val();
+                tiempo = parseInt(tiempo) * 1000;
+                //tiempo = ""
+                parseInt(tiempo) * 1000;
+                var tiempoDoble = parseInt(tiempo) * 2;
+                $("#card-1, #card-2, #card-3, #card-4").flip("true");
+
+                var intervalo2 = setTimeout(
+                    function() {
+                        // No funciona
+                        $("#card-1, #card-2, #card-3, #card-4").flip("false");
+
+                        console.log(tiempoDoble);
+                    }, eval(tiempoDoble));
+            });
+            $("#card-1").flip({
+                trigger: "toggle",
+                speed: 3000
+            })
+            $("#card-2").flip({
+                trigger: "toggle",
+                speed: 3000
+            });
+            $("#card-3").flip({
+                trigger: "toggle",
+                speed: 3000
+            });
+            $("#card-4").flip({
+                trigger: "toggle",
+                speed: 3000
+            });
+
+            // fotos movimiento
+            $("#img1").draggable({
+                revert: "invalid"
+            });
+            $("#img2").draggable({
+                revert: "invalid"
+            });
+            $("#img3").draggable({
+                revert: "invalid"
+            });
+            $("#img4").draggable({
+                revert: "invalid"
+            });
+            $("#nx1").droppable({
+                accept: "#img1"
+            });
+            $("#nx2").droppable({
+                accept: "#img2"
+            });
+            $("#nx3").droppable({
+                accept: "#img3"
+            });
+            $("#nx4").droppable({
+                //tolerance: "fit",
+                accept: "#img4"
+            });
+            /*
+            $("#nx1").on("drop", function() {
+                alert("Dentro")
+            });
+            */
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Documento sin título</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style type="text/css">
+        #titulo {
+            background-color: brown;
+            width: 200px;
+            cursor: pointer;
+        }
+        
+        #descripcion {
+            background-color: coral;
+            width: 200px
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Titular 1</h1>
+    <h1>Titular 2</h1>
+    <h1>Titular 3</h1>
+    <h1>Titular 4</h1>
+    <h1>Titular 5</h1>
+    <h1>Titular 6</h1>
+    <p> Parrafo 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sunt modi, excepturi non rerum itaque, adipisci sapiente cumque laudantium eligendi suscipit expedita, inventore ullam libero?</p>
+    <p> Parrafo 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sunt modi, excepturi non rerum itaque, adipisci sapiente cumque laudantium eligendi suscipit expedita, inventore ullam libero?</p>
+    <p> Parrafo 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sunt modi, excepturi non rerum itaque, adipisci sapiente cumque laudantium eligendi suscipit expedita, inventore ullam libero?</p>
+    <p> Parrafo 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sunt modi, excepturi non rerum itaque, adipisci sapiente cumque laudantium eligendi suscipit expedita, inventore ullam libero?</p>
+    <p> Parrafo 5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sunt modi, excepturi non rerum itaque, adipisci sapiente cumque laudantium eligendi suscipit expedita, inventore ullam libero?</p>
+    <div id="cuadro"></div>
+    <input type="button" title="que ponga los titulares impares en negrita y letra calibri" id="cambio1" value="cambio1">
+    <input type="button" title="que ponga los titulares pares alineados al centro con tamaño 300px y un borde" id="cambio2" value="cambio2">
+    <input type="button" title="al pulsar el botón que el primer parrafo se ponga subrayado" id="cambio3" value="cambio3">
+    <input type="button" title="al pulsar el botón que el quinto parrafo desaparezca" id="cambio4" value="cambio4">
+    <input type="button" title="al pulsar el botón que se activen los input de tipo password, no puedes ponerles ids ni clase, es quitarle el atributo con removeAttr" id="cambio5" value="cambio5">
+    <input type="button" title="al pulsar el botón que oculte los campos usuarios" id="cambio6" value="cambio6">
+    <input type="button" title="al pulsar el botón que nos muestre la foto que hayan elegido en el campo de tipo fichero" id="cambio7" value="cambio7">
+    <input type="button" title="al pulsar el botón que mire que valor está escrito en el cuadro del numero, y nos ponga centrados los titulares que estén a partir de ese numero, por ejemplo si es el 2, que nos pongan centrados el tercero, cuarto, etc..."
+        id="cambio8" value="cambio8">
+    <p></p>
+    usuario1:<input type="text" disabled> usuario2:
+    <input type="text" disabled> usuario3:
+    <input type="text" disabled>
+    <p></p>
+    clave1:<input type="password" disabled> clave2:
+    <input type="password" disabled> clave3:
+    <input type="password" disabled>
+    <p></p>
+    numero: <input type="number" id="numero">
+    <p></p>
+    <div id="titulo">Fernando Alonso</div>
+    <div id="descripcion">Fernando Alonso ganará el Rally Paris Dakar en el año 2020</div>
+    <p></p>
+    <table>
+        <tr>
+            <td id="celda">num1</td>
+            <td>num2</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+        </tr>
+    </table>
+    <img id="imagen" name="imagen">
+    <input type="file" id="fichero">
+    <script>
+        $(function() {
+            // titulares impares en negrita y letra calibri
+            $("#cambio1").click(function() {
+                $('h1:odd').css({
+                    "font-family": "calibri",
+                    "font-weight": "bold"
+                });
+            });
+            // titulares pares alineados al centro con tamaño 30px y un borde
+            $("#cambio2").click(function() {
+                $('p:even').css({
+                    "text-align": "center",
+                    "width": "300px",
+                    "border": "1px solid black"
+                });
+            });
+            // el primer parrafo se ponga subrayado
+            $("#cambio3").click(function() {
+                $('p:first').css({
+                    "text-decoration": "underline red"
+                });
+            });
+            // quinto parrafo desaparezca
+            $("#cambio4").click(function() {
+                $('p:eq(4)').css({
+                    "visibility": "hidden"
+                });
+            });
+            // activen los input de tipo password, no puedes ponerles ids ni clase, es quitarle el atributo con removeAttr
+            $("#cambio5").click(function() {
+                $(':password').removeAttr("disabled");
+            });
+            // oculte los campos usuarios
+            $("#cambio6").click(function() {
+                $(':text').css({
+                    "visibility": "hidden"
+                })
+            });
+            //muestre la foto que hayan elegido en el campo de tipo fichero
+            $("#cambio7").click(function() {
+                var img = $('input[type=file]').val();
+                var img_split = img.split("\\");
+                var img_name = img_split[img_split.length - 1];
+                $("#imagen").attr('src', img_name);
+
+                console.log(img_name);
+            });
+            /*
+            al pulsar el botón que mire que valor está escrito en el cuadro del numero, y nos ponga centrados los titulares que
+            estén a partir de ese numero, por ejemplo si es el 2, que nos pongan centrados el tercero,
+            */
+            $("#cambio8").click(function() {
+                var num = $('input[type=number]').val();
+                num = parseInt(num) - 1;
+                console.log(num);
+                $("h1:gt(" +
+                    num + ")").css({
+                    "text-align": "center"
+                });
+            });
+
+            // Incluye cual sería el código para que la descripción se pliegue y //despliegue usando el efecto slide
+            // también que al ir a pinchar en titulo salga la mano en lugar del cursor	.
+
+            $("#titulo").click(function() {
+                $("#descripcion").slideToggle();
+            });
+        });
+
+        $('td:odd').css({
+            "font-family": "calibri",
+            "font-weight": "bold",
+            "border": "1px solid red"
+        });
+    </script>
+
+    <!-- aquí usando emmet crea una tabla de 6 filas y tres columnas, en los que en cada celda vaya escribiendose num1, num2, etc...
+         y con jquery luego haz que al cargarse la página se pongan los bordes de las celdas impares en rojo.-->
+    <!-- table>tr*6>td*3>{num$} -->
+    <table>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+            <td>num3</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+            <td>num3</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+            <td>num3</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+            <td>num3</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+            <td>num3</td>
+        </tr>
+        <tr>
+            <td>num1</td>
+            <td>num2</td>
+            <td>num3</td>
+        </tr>
+    </table>
+</body>
+
+</html>
