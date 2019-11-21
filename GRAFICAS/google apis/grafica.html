@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Discos', 'Conciertos', {
+                    role: 'style'
+                }],
+                ['Gorefest', 7, 'yellow'],
+                ['Bad Religion', 3, 'silver'],
+                ['Habeas Corpus', 5, 'red']
+
+            ]);
+
+
+
+
+
+            var options = {
+                title: 'Actividad Música',
+                is3D: true,
+
+            };
+
+            //var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

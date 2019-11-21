@@ -164,35 +164,21 @@
             $("#jugar").click(function() {
                 tiempo = $("#segundos").val();
                 tiempo = parseInt(tiempo) * 1000;
-                //tiempo = ""
                 parseInt(tiempo) * 1000;
-                var tiempoDoble = parseInt(tiempo) * 2;
-                $("#card-1, #card-2, #card-3, #card-4").flip("true");
+                var tiempoDoble = parseInt(tiempo);
 
-                var intervalo2 = setTimeout(
-                    function() {
-                        // No funciona
-                        $("#card-1, #card-2, #card-3, #card-4").flip("false");
+                function voltear() {
+                    $("#card-1, #card-2, #card-3, #card-4").flip("toggle");
+                }
+                var time = "setTimeout(voltear," + tiempoDoble + ")";
 
-                        console.log(tiempoDoble);
-                    }, eval(tiempoDoble));
+                var intervalo2 = setTimeout(voltear(), 500);
+                eval(time);
             });
-            $("#card-1").flip({
-                trigger: "toggle",
+            $("#card-1, #card-2, #card-3, #card-4").flip({
+                trigger: "manual",
                 speed: 3000
             })
-            $("#card-2").flip({
-                trigger: "toggle",
-                speed: 3000
-            });
-            $("#card-3").flip({
-                trigger: "toggle",
-                speed: 3000
-            });
-            $("#card-4").flip({
-                trigger: "toggle",
-                speed: 3000
-            });
 
             // fotos movimiento
             $("#img1").draggable({
@@ -220,11 +206,11 @@
                 //tolerance: "fit",
                 accept: "#img4"
             });
-            /*
-            $("#nx1").on("drop", function() {
-                alert("Dentro")
+
+            $("#nx1 , #nx2, #nx3, #nx4").on("drop", function() {
+                alert("Correcto")
             });
-            */
+
         });
     </script>
 </body>

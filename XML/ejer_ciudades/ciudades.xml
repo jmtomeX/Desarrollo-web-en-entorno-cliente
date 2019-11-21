@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ciudades>
+   <ciudad>
+      <nombre>Nueva Delhi</nombre>
+      <pais continente="Ásia"><b>India</b></pais>
+   </ciudad>
+      <br></br>
+   <ciudad>
+      <nombre>Lisboa</nombre>
+      <pais continente="Europa"><b>Portugal</b></pais>
+   </ciudad>
+         <br></br>
+   <ciudad>
+      <nombre>El Cairo</nombre>
+      <pais continente="África"><b>Egipto</b></pais>
+   </ciudad>
+</ciudades>
+
+
+
+	
+
+
+	
+

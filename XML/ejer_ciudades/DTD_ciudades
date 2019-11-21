@@ -1,0 +1,6 @@
+﻿<!ELEMENT ciudades (ciudad+)>
+<!ELEMENT ciudad (nombre, pais)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+<!ATTLIST pais
+          continente CDATA #REQUIRED>
