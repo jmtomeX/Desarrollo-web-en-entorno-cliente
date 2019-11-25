@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Partidos>
+  <Partido>
+      <Equipos>
+      <Equipo-Local>Real Sociedad</Equipo-Local>
+      <Equipo-Visitante>Alaves</Equipo-Visitante>
+      </Equipos>
+      <Resultado>1-4</Resultado>
+      <Fecha>03-05-2019 18:00</Fecha>
+  </Partido>
+  <Partido>
+      <Equipos>
+      <Equipo-Local>Real Madrid</Equipo-Local>
+      <Equipo-Visitante>Logroño</Equipo-Visitante>
+      </Equipos>
+      <Resultado>0-6</Resultado>
+      <Fecha>24-10-2019 18:00</Fecha>
+  </Partido>
+  <Partido>
+     <Equipos>
+      <Equipo-Local>Eibar</Equipo-Local>
+      <Equipo-Visitante>Español</Equipo-Visitante>
+      </Equipos>
+      <Resultado>1-5</Resultado>
+      <Fecha>23-01-2019 18:00</Fecha>
+  </Partido>
+  <Partido>
+      <Equipos>
+      <Equipo-Local>Levante</Equipo-Local>
+      <Equipo-Visitante>Mallorca</Equipo-Visitante>
+      </Equipos>
+      <Resultado>4-9</Resultado>
+      <Fecha>10-10-2019 18:00</Fecha>
+  </Partido>
+  <Partido>
+      <Equipos>
+      <Equipo-Local>F.C Barcelona</Equipo-Local>
+      <Equipo-Visitante>Athletic</Equipo-Visitante>
+      </Equipos>
+      <Resultado>4-6</Resultado>
+      <Fecha>110-10-2019 18:00</Fecha>
+  </Partido>
+  <Partido>
+      <Equipos>
+      <Equipo-Local>Osasuna</Equipo-Local>
+      <Equipo-Visitante>Sevilla</Equipo-Visitante>
+      </Equipos>
+      <Resultado>3-5</Resultado>
+      <Fecha>18-12-2019 18:00</Fecha>
+  </Partido>
+</Partidos>
