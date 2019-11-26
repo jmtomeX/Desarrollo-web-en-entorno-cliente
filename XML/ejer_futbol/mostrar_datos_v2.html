@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        var cont_ganados = 0;
+        var cont_perdidos = 0;
+        var cont_empatados = 0;
+        $(function() {
+            let equipo_local = "";
+            let equipo_visitante = "";
+            let resultado = "";
+            let fecha = "";
+            $.get("juegos.xml", function(xml) {
+                $(xml)
+                    .find("Partido")
+                    .each(function() {
+                        equipo_local = $(this)
+                            .find("Equipo-Local")
+                            .text();
+                        equipo_visitante = $(this)
+                            .find("Equipo-Visitante")
+                            .text();
+                        resultado = $(this)
+                            .find("Resultado")
+                            .text();
+                        fecha = $(this)
+                            .find("Fecha")
+                            .text();
+                        var goles_local = resultado.slice(0, 1);
+                        var goles_visit = resultado.slice(-1);
+
+                        if (goles_local < goles_visit) {
+                            $("#partidos").append('<h1><font color="green">' + equipo_local + '</font> - <font color = "red">' + equipo_visitante + "</font></h1>");
+                            cont_ganados++;
+                        } else if (goles_local > goles_visit) {
+                            $("#partidos").append('<h1><font color="red">' + equipo_local + '</font> - <font color = "green">' + equipo_visitante + "</font></h1>");
+                            cont_perdidos++;
+                        } else {
+                            cont_empatados++;
+                        }
+                        $("#partidos").append("<h2>" + resultado + "</h2>");
+                        $("#partidos").append("<h3>" + fecha + "</h3>");
+
+                    });
+            });
+        });
+        // Gráfica de google
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Discos', 'Partidos', {
+                    role: 'style'
+                }],
+                ['Ganados en casa', cont_ganados, 'green'],
+                ['Ganados visitante', cont_perdidos, 'red'],
+                ['Empatados ', cont_empatados, 'black']
+
+            ]);
+            var options = {
+                title: 'Resultado partidos',
+                is3D: true,
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+    </script>
+    <div id="partidos"></div>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

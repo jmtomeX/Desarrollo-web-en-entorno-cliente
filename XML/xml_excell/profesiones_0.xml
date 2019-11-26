@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Trabajadores xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///Z:/DAW%20Segundo/Desarrollo%20web%20en%20entorno%20cliente/XML/schema_profesiones.xsd">
+	
+<Trabajador>
+<Nombre>María</Nombre>
+	<Ciiudad>Donosti</Ciiudad>
+	<Provincia>Gipuzkoa</Provincia>
+	<Edad>34</Edad>
+	<Ocupacion>Pintor</Ocupacion>
+	<Fecha>03/06/2016</Fecha>
+	<Ingresos>47000</Ingresos>
+	</Trabajador>
+		
+	<Trabajador>	
+	<Nombre>Ángel</Nombre>
+	<Ciiudad>Bilbao</Ciiudad>
+	<Provincia>Bizkaia</Provincia>
+	<Edad>34</Edad>
+	<Ocupacion>Pintor</Ocupacion>
+	<Fecha>03/06/2016</Fecha>
+	<Ingresos>47000</Ingresos>
+	</Trabajador>Trabajador>	
+</Trabajadores>

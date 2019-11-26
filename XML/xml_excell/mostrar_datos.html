@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        $(function() {
+            $.get("profesiones_emplo.xml", function(xml) {
+
+
+                $(xml)
+                    .find("Trabajador")
+                    .each(function() {
+                        nombre = $(this)
+                            .find("Nombre")
+                            .text();
+                        ciudad = $(this)
+                            .find("Ciudad")
+                            .text();
+                        provincia = $(this)
+                            .find("Provincia")
+                            .text();
+                        edad = $(this)
+                            .find("Edad")
+                            .text();
+                        ocupacion = $(this)
+                            .find("Ocupación")
+                            .text();
+                        fecha = $(this)
+                            .find("Fecha")
+                            .text();
+                        ingreso = $(this)
+                            .find("Ingreso")
+                            .text();
+                        $("#datos").append("<h2>" + nombre + "</h2>");
+                        $("#datos").append("<h3>" + ciudad + "</h3>");
+                        $("#datos").append("<h3>" + provincia + "</h3>");
+                        $("#datos").append("<h4>" + Edad + "</h4>");
+                        $("#datos").append("<h4>" + ocupacion + "</h4>");
+                        $("#datos").append("<h3>" + fecha + "</h3>");
+                        $("#datos").append("<h3>" + ingreso + "</h3>");
+
+                    });
+            });
+        });
+    </script>
+    <div id="datos"></div>
+</body>
+
+</html>

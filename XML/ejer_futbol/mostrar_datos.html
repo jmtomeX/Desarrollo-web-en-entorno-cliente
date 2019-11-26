@@ -1,87 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <style>
-      .red {
-        color: red;
-      }
-      .green {
-        color: green;
-      }
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
     </style>
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <script>
-      //Leer nodos
+        'use strict'
         var cont = 0;
-      $(function() {
-        let equipo_local = "";
-        let equipo_visitante = "";
-        let resultado = "";
-        let fecha = "";
-        $.get("juegos.xml", function(xml) {
-          $(xml)
-            .find("Partido")
-            .each(function() {
-              equipo_local = $(this)
-                .find("Equipo-Local")
-                .text();
-              equipo_visitante = $(this)
-                .find("Equipo-Visitante")
-                .text();
-              resultado = $(this)
-                .find("Resultado")
-                .text();
-              fecha = $(this)
-                .find("Fecha")
-                .text();
-
-              var goles_local = resultado.slice(0, 1);
-              var goles_visit = resultado.slice(-1);
-              console.log(goles_local);
-              console.log(goles_visit);
-              cont++;
-              $("#partidos").append(
-                '<h1><span id="local' +
-                  cont +
-                  '">' +
-                  equipo_local +
-                  '</span> - <span id="visit' +
-                  cont +
-                  ' ">' +
-                  equipo_visitante +
-                  "</span></h1>"
-              );
-              $("#partidos").append("<h2>" + resultado + "</h2>");
-              $("#partidos").append("<h3>" + fecha + "</h3>");
-              var local = "#local" + cont;
-              var visit = "#visit" + cont;
-              console.log("local " + local);
-              console.log("visitante " + goles_local + " " + visit);
-              console.log(typeof(goles_local));
-              if (parseInt(goles_local) < parseInt(goles_visit)) {
-                console.log("dentro del if");
-                $(local).addClass("red");
-                $(visit).addClass("green");
-              } else if (parseInt(goles_local) > parseInt(goles_visit)) {
-                console.log("dentro del else if");
-                $(local).addClass("green");
-                $(visit).addClass("red");
-              } else {
-                console.log("dentro del else");
-                $(visit).addClass("green");
-                $(local).addClass("green");
-              }
+        $(function() {
+            let equipo_local = "";
+            let equipo_visitante = "";
+            let resultado = "";
+            let fecha = "";
+            $.get("juegos.xml", function(xml) {
+                $(xml)
+                    .find("Partido")
+                    .each(function() {
+                        equipo_local = $(this)
+                            .find("Equipo-Local")
+                            .text();
+                        equipo_visitante = $(this)
+                            .find("Equipo-Visitante")
+                            .text();
+                        resultado = $(this)
+                            .find("Resultado")
+                            .text();
+                        fecha = $(this)
+                            .find("Fecha")
+                            .text();
+                        var goles_local = resultado.slice(0, 1);
+                        var goles_visit = resultado.slice(-1);
+                        cont++;
+                        $("#partidos").append(
+                            '<h1><span id="local' +
+                            cont +
+                            '">' +
+                            equipo_local +
+                            '</span> - <span id="visit' +
+                            cont +
+                            '">' +
+                            equipo_visitante +
+                            "</span></h1>"
+                        );
+                        $("#partidos").append("<h2>" + resultado + "</h2>");
+                        $("#partidos").append("<h3>" + fecha + "</h3>");
+                        var local = "#local" + cont;
+                        var visit = "#visit" + cont;
+                        if (goles_local < goles_visit) {
+                            $(local).addClass("red");
+                            var attr = $(local).attr("style");
+                            console.log(attr);
+                            $(visit).addClass("green");
+                        } else if (goles_local > goles_visit) {
+                            $(local).addClass("green");
+                            $(visit).addClass("red");
+                        }
+                    });
             });
         });
-      });
     </script>
     <div id="partidos"></div>
-  </body>
+</body>
+
 </html>

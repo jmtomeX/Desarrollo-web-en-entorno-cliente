@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Trabajadores">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="Trabajador" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Trabajador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Nombre" type="xs:string"/>
+        <xs:element name="Ciiudad" type="xs:string"/>
+        <xs:element name="Provincia" type="xs:string"/>
+        <xs:element name="Edad" type="xs:string"/>
+          <xs:element name="Ocupacion" type="xs:string"/>
+        <xs:element name="Fecha" type="xs:string"/>
+        <xs:element name="Ingresos" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
