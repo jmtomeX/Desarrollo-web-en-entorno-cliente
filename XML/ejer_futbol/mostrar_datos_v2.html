@@ -46,8 +46,10 @@
                         fecha = $(this)
                             .find("Fecha")
                             .text();
-                        var goles_local = resultado.slice(0, 1);
-                        var goles_visit = resultado.slice(-1);
+                        var goles = resultado.split("-");
+
+                        var goles_local = goles[0];
+                        var goles_visit = goles[1];
 
                         if (goles_local < goles_visit) {
                             $("#partidos").append('<h1><font color="green">' + equipo_local + '</font> - <font color = "red">' + equipo_visitante + "</font></h1>");
