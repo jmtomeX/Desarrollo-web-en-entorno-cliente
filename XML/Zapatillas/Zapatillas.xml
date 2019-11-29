@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Zapatillas>
+<Zapatilla>
+<Marca>Mavic</Marca>
+<Modelo>Crossmax Elite</Modelo>	
+<Precio_unid>129</Precio_unid>	
+<Stock>4</Stock>
+<Foto>crossMax.webp</Foto>
+</Zapatilla>
+<Zapatilla>
+<Marca>Sidi </Marca>
+<Modelo>Eagle 7</Modelo>	
+<Precio_unid>159</Precio_unid>	
+<Stock>8</Stock>
+<Foto>sidi.webp</Foto>
+</Zapatilla>
+</Zapatillas>

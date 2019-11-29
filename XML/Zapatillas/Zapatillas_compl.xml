@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Zapatillas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Zapatilla>
+		<Marca>Acsics</Marca>
+		<Modelo>Nimbus</Modelo>
+		<Precio_unid>120</Precio_unid>
+		<Stock>3</Stock>
+		<Foto>nimbus.jpg</Foto>
+	</Zapatilla>
+	<Zapatilla>
+		<Marca>Acsics</Marca>
+		<Modelo>Pulse II</Modelo>
+		<Precio_unid>95</Precio_unid>
+		<Stock>14</Stock>
+		<Foto>pulse.jpg</Foto>
+	</Zapatilla>
+	<Zapatilla>
+		<Marca>Adidas</Marca>
+		<Modelo>Ultraboost</Modelo>
+		<Precio_unid>89</Precio_unid>
+		<Stock>12</Stock>
+		<Foto>ultraboost.jpg</Foto>
+	</Zapatilla>
+	<Zapatilla>
+		<Marca>Adidas</Marca>
+		<Modelo>Energy Boost</Modelo>
+		<Precio_unid>125</Precio_unid>
+		<Stock>3</Stock>
+		<Foto>energy-boost.jpg</Foto>
+	</Zapatilla>
+	<Zapatilla>
+		<Marca>Adidas</Marca>
+		<Modelo>Terrex</Modelo>
+		<Precio_unid>70</Precio_unid>
+		<Stock>10</Stock>
+		<Foto>terrex.jpg</Foto>
+	</Zapatilla>
+	<Zapatilla>
+		<Marca>Mavic</Marca>
+		<Modelo>Crossmax Elite</Modelo>	
+		<Precio_unid>129</Precio_unid>	
+		<Stock>4</Stock>
+		<Foto>crossMax.webp</Foto>
+</Zapatilla>
+<Zapatilla>
+		<Marca>Sidi </Marca>
+		<Modelo>Eagle 7</Modelo>	
+		<Precio_unid>159</Precio_unid>	
+		<Stock>8</Stock>
+		<Foto>sidi.webp</Foto>
+</Zapatilla>
+	<Zapatilla>
+		<Marca>Adidas</Marca>
+		<Modelo>Solar Box</Modelo>
+		<Precio_unid>89</Precio_unid>
+		<Stock>3</Stock>
+		<Foto>solar.webp</Foto>
+	</Zapatilla>
+</Zapatillas>
