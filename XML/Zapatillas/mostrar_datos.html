@@ -22,12 +22,13 @@
     <script>
         'use strict'
         $(function() {
-            var cont = 0;
-            var arrayZapatillas = new Array();
-            arrayZapatillas[cont] = new Array();
+        var cont = 0;
+        var arrayZapatillas = new Array();
+        arrayZapatillas[cont] = new Array();
+        arrayZapatillas[0] = new Array(5);
+        var foto = "";
 
-
-            $.get("Zapatillas_compl.xml", function(xml) {
+        $.get("Zapatillas_compl.xml", function(xml) {
                 $(xml)
                     .find("Zapatilla")
                     .each(function() {
@@ -43,7 +44,7 @@
                         let stock = $(this)
                             .find("Stock")
                             .text();
-                        let foto = $(this)
+                        var foto = $(this)
                             .find("Foto")
                             .text();
 
@@ -58,18 +59,16 @@
 
                     });
                 $("#zapatillas").append('<img width ="300" heigth="250" src="./img/' + foto + '">');
-                for (var i = 0; i < arrayZapatillas.length; i++) {
-                    $("#zapatillas").append("<select id='menu'>");
-                    $("#zapatillas").append('<option value = + " cont 
-                        arrayZapatillas[i].marca;
-                    }
+                console.log(arrayZapatillas[0][0]);
+                /for (var i = 0; i < arrayZapatillas.length; i++) {
+                $("#zapatillas").append("<select id='menu'>");
+                $("#zapatillas").append('<option value = "+ cont + > +  
+                    arrayZapatillas[i][0];
+                }
 
-                    +
-                    modelo
-                        +
-                        '< /option>');
-                $("#zapatillas").append("</select>");
-            });
+                '< /option>'); $("#zapatillas").append("</select>");
+        }
+        });
         });
     </script>
 
