@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <style>
-        .red {
-            color: red;
-        }
-        
-        .green {
-            color: green;
-        }
+      #zapatillas {
+        margin-top: 2em;
+      }
     </style>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        'use strict'
-        $(function() {
+      "use strict";
+      $(function() {
         var cont = 0;
         var arrayZapatillas = new Array();
         arrayZapatillas[cont] = new Array();
@@ -29,51 +24,73 @@
         var foto = "";
 
         $.get("Zapatillas_compl.xml", function(xml) {
-                $(xml)
-                    .find("Zapatilla")
-                    .each(function() {
-                        let marca = $(this)
-                            .find("Marca")
-                            .text();
-                        let modelo = $(this)
-                            .find("Modelo")
-                            .text();
-                        let precio = $(this)
-                            .find("Precio_unid")
-                            .text();
-                        let stock = $(this)
-                            .find("Stock")
-                            .text();
-                        var foto = $(this)
-                            .find("Foto")
-                            .text();
+          $(xml)
+            .find("Zapatilla")
+            .each(function() {
+              let marca = $(this)
+                .find("Marca")
+                .text();
+              let modelo = $(this)
+                .find("Modelo")
+                .text();
+              let precio = $(this)
+                .find("Precio_unid")
+                .text();
+              let stock = $(this)
+                .find("Stock")
+                .text();
+              var foto = $(this)
+                .find("Foto")
+                .text();
 
-                        arrayZapatillas[cont] = ([marca, modelo, precio, stock, foto]);
-                        $("#zapatillas").append(
-                            '<h1>' + marca + ' </h1>' +
-                            '<h2>' + modelo + ' </h2>' +
-                            '<h3>' + precio + ' €</h3>' +
-                            '<h2>' + stock + ' </h2>'
-                        );
-                        cont++;
+              arrayZapatillas[cont] = [marca, modelo, precio, stock, foto];
+              /*$("#zapatillas").append(
+                "<h1>" +
+                  marca +
+                  " </h1>" +
+                  "<h2>" +
+                  modelo +
+                  " </h2>" +
+                  "<h3>" +
+                  precio +
+                  " €</h3>" +
+                  "<h2>" +
+                  stock +
+                  " </h2>"
+              );*/
+              cont++;
+            });
 
-                    });
-                $("#zapatillas").append('<img width ="300" heigth="250" src="./img/' + foto + '">');
-                console.log(arrayZapatillas[0][0]);
-                /for (var i = 0; i < arrayZapatillas.length; i++) {
-                $("#zapatillas").append("<select id='menu'>");
-                $("#zapatillas").append('<option value = "+ cont + > +  
-                    arrayZapatillas[i][0];
-                }
-
-                '< /option>'); $("#zapatillas").append("</select>");
-        }
+          for (var i = 0; i < arrayZapatillas.length; i++) {
+            console.log(arrayZapatillas[i][0] + " " + arrayZapatillas[i][1]);
+            $("#menu").append(
+              '<option value = "' +
+                i +
+                '">' +
+                arrayZapatillas[i][0] +
+                " " +
+                arrayZapatillas[i][1]
+            );
+          }
         });
+
+        $("#mostrar").click(function() {
+          var arrayPosition = $("#menu").val();
+          $("#zapatillas").html(
+            '<img width ="300" heigth="250" src="./img/' +
+              arrayZapatillas[arrayPosition][4] +
+              '"><h1>' +
+              arrayZapatillas[arrayPosition][0] + " " + arrayZapatillas[arrayPosition][1] +
+              '</h1><p>Precio: ' + arrayZapatillas[arrayPosition][2] + '</p><p>Stock :' +
+                arrayZapatillas[arrayPosition][3] + '</p>'    
+          );
+      
         });
+      });
     </script>
 
-    <div id="zapatillas">
-    </div>
-</body>
-
+    <select id="menu"></select>
+    <button id="mostrar">Mostrar</button>
+    <div id="zapatillas"></div>
+  </body>
 </html>
