@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Zapatillas SYSTEM "file:///Z:/DAW%20Segundo/Desarrollo%20web%20en%20entorno%20cliente/XML/ejer_zapt_DTD/ejer_Zapatillas_DTD2.dtd">
+<Zapatillas>
+	<Zapatilla marca="Adidas">
+		<Modelo>Nimbus</Modelo>
+		<Precio>120</Precio>
+		<Stock>3</Stock>
+		<Pisada>Neutra</Pisada>
+	</Zapatilla>
+	<Zapatilla marca = "Asics">
+		<Modelo>Pulse II</Modelo>
+		<Precio>95</Precio>
+		<Stock>14</Stock>
+</Zapatilla>
+	<Zapatilla marca="Nike">
+		<Modelo>Ultraboost</Modelo>
+		<Precio>89</Precio>
+		<Stock>12</Stock>
+	</Zapatilla>
+	<Zapatilla marca="Adidas">
+		<Modelo>Energy Boost</Modelo>
+		<Precio>125</Precio>
+		<Stock>3</Stock>
+		<Pisada>Supinada</Pisada>
+	</Zapatilla>
+</Zapatillas>

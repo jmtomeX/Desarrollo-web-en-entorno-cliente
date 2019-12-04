@@ -1,0 +1,36 @@
+﻿<!DOCTYPE Perros SYSTEM "file:///Z:/DAW%20Segundo/Desarrollo%20web%20en%20entorno%20cliente/XML/ejer_perros/perros.dtd">
+<Perros>
+    <Perro>
+        <raza>dogo aleman</raza>
+        <img>dogo aleman.jpg</img>
+    </Perro>
+    <Perro>
+        <raza>dogo burdeos</raza>
+        <img>dogo burdeos.jpg</img>
+    </Perro>
+    <Perro>
+        <raza>leonberger</raza>
+        <img>leonberger.jpg</img>
+    </Perro>
+    <Perro>
+        <raza>pastor aleman</raza>
+        <img>pastor aleman.jpg</img>
+    </Perro>
+    <Perro>
+        <raza>pastor belga malinois</raza>
+        <img>pastor belga malinois.jpg</img>
+    </Perro>
+    <Perro>
+        <raza>pastor australiano</raza>
+        <img>pastor australiano.jpg</img>
+    </Perro>
+    <Perro>
+        <raza>setter ingles</raza>
+        <img>setter ingles.jpg</img>
+    </Perro>
+    <Perro>
+        <raza>setter irlandes</raza>
+        <img>setter irlandes.jpg</img>
+    </Perro>
+</Perros>
+

@@ -1,0 +1,4 @@
+<!ELEMENT Perros (Perro+)>
+<!ELEMENT Perro (raza, img)>
+<!ELEMENT raza (#PCDATA)>
+<!ELEMENT img (#PCDATA)>

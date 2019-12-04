@@ -1,0 +1,7 @@
+<!ELEMENT Zapatillas (Zapatilla+)>
+<!ELEMENT Zapatilla (Modelo, Precio, Stock, Pisada?)>
+<!ATTLIST Zapatilla marca (Asics| Adidas| Nike)  #REQUIRED>
+<!ELEMENT Modelo (#PCDATA)>
+<!ELEMENT Precio (#PCDATA)>
+<!ELEMENT Stock (#PCDATA)>
+<!ELEMENT Pisada (#PCDATA)>

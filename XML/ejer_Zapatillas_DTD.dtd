@@ -1,0 +1,15 @@
+<!DOCTYPE zapatillas [
+<!ELEMENT zapatillas (zapatilla+)>
+  <!ELEMENT zapatilla (modelo+, precio+, stock+, pisada?)>
+  <!ATTLIST zapatilla  marca  (Asics | Adidas | Nike)  #REQUIRED>
+  <!ELEMENT modelo (#PCDATA)>
+  <!ELEMENT precio (#PCDATA)>
+  <!ELEMENT stock (#PCDATA)>
+  <!ELEMENT pisada  (#PCDATA)>
+]>
+
+
+<!--Tendrá una etiqueta raíz zapatillas, y dentro la etiqueta zapatilla para cada uno.
+Tendrá un parámetro para la marca, y luego unas etiquetas para el modelo, el precio, el stock. 
+y una etiqueta opcional que será pisada. Las marcas permitidas serán Asics Adidas y Nike.
+Después de crear el DTD, crea el XML con dos o tres zapatillas para probar que lo valida bien.-->

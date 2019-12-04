@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<p>Cargando json</p>
+<input type="submit" id="boton" value="click para mostrar json" />
+
+<div id="plantilla">
+    <h1>{{name}}</h1>
+    <p>{{email}}</p>
+    <p>{{body}}</p>
+</div>
+<script>
+    //ocultamos el div
+    $('#plantilla').hide();
+
+    $('#boton').on('click', function() {
+        //extraemos todo el cotenido y el html tambien con .html
+        //y el método trim eliminamos los espacios
+        template = $.trim($('#plantilla').html());
+        //pasamos el archivo json
+        $.getJSON("datos.json", function(data) {
+            //forin para recorrer las propiedades
+            console.log(data);
+            for (datos in data.contenido) {
+                //replace va sustituir {{titulo}} por lo que tiene data.contenido[datos].titulo
+                var temp =
+                    template.replace(/{{name}}/ig, data.contenido[datos].name)
+                    .replace(/{{email}}/ig, data.contenido[datos].email)
+                    .replace(/{{body}}/ig, data.contenido[datos].body);
+                $(document.body).append(temp);
+            }
+        });
+    });
+</script>
+
+</html>
