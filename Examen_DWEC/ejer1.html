@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- UTILIZANDO EXCLUSIVAMENTE JAVASCRIPT (SIN JQUERY)
+Página entrada.htm
+Una página de entrada en la que por una parte se pida un usuario y una contraseña y un botón de acceso, si los datos son correctos que nos envíe a la página de Cebanc,
+y si no lo son que nos aparezca un mensaje de error.
+Los usuarios posibles son user2019 y user2020 y las claves posibles cebanc2019 y cebanc2020, pudiendo escribirse las claves en minúsculas o mayúsculas. 
+En ese formulario también se pedirá el nombre de la persona, el correo electrónico y la edad. El correo electrónico tiene que tener al menos la @,
+el nombre no podrá estar vacío, y debe ser mayor de edad. 
+Para poder entrar en la web de Cebanc es imprescindible cumplir las normas anteriores.
+ -->
+
+<body>
+    <form>
+        <label>Usuario<input type="text" id="user"></label><br>
+        <label>Password<input type="password" id="pass"></label><br>
+        <label>Nombre<input type="text" id="name"></label><br>
+        <label>Email<input type="email" id="email"></label><br>
+        <label>Edad<input type="number" id="edad" value="0"></label><br>
+        <input type="button" value="enviar" id="boton" onclick="enviar()">
+        <div id="error"></div>
+        <div id="error2">
+            </span>
+    </form>
+    <script>
+        function enviar() {
+            var user = document.getElementById("user").value;
+            var password = document.getElementById("pass").value;
+            password = password.toLowerCase();
+            console.log(password);
+            var edad = document.getElementById("edad").value;
+            var email = document.getElementById("email").value;
+            if (email.indexOf('@') != -1 && email != "" && email != null && edad >= 18) {
+                comprobarUser(user, password);
+                console.log("if " + user + " " + password);
+            } else {
+                document.getElementById("error").innerHTML = "Ingresa el correo y ten en cuenta que has de ser mayor de edad";
+                console.log("else " + user + " " + password);
+            }
+        }
+
+        function comprobarUser(usuario, contrasenha) {
+            if (usuario == 'user2019' && usuario != '' && usuario != null && contrasenha == 'cebanc2019') {
+                window.location = "https://www.cebanc.com/";
+
+            } else if ((usuario == 'user2020' && usuario != '' && usuario != null && contrasenha == 'cebanc2020')) {
+                window.location = "https://www.cebanc.com/";
+            } else {
+                document.getElementById("error2").innerHTML = "Error al identificarse";
+            }
+        }
+    </script>
+</body>
+
+</html>

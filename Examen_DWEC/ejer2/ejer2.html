@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <style>
+        main {
+            width: 100%;
+            padding: 3em;
+        }
+        
+        div[id^="color-"] {
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            box-sizing: border-box;
+            display: inline;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .rojo {
+            background: red;
+        }
+        
+        .gris {
+            background: grey;
+        }
+        
+        .azul {
+            background: blue;
+        }
+        
+        .negro {
+            background: black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<main>
+    <h1>Página Yaris</h1>
+    <div id="img">
+        <img src="" id="imagen" alt="">
+    </div>
+    <div id="colores">
+        Elige color
+        <div id="color-rojo" class="rojo">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id="color-gris" class="gris">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id="color-azul" class="azul">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id="color-negro" class="negro">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <br>
+        <br>
+        <label for="recogida">Fecha de alquiler<input type="date" name="recogida" id="recogida"></label>
+        <label for="entrega">Fecha entrega<input type="date" name="entrega" id="entrega"></label>
+        <input type="button" value="Enviar" id="boton">
+        <br>
+        <div id="precio"></div>
+    </div>
+</main>
+<script>
+    $(function() {
+        $("#imagen").attr("src", "azul.jpg");
+        var color = 'azul';
+        $("#boton").click(function() {
+            var recogida = $("#recogida").val();
+            recogida = moment(recogida);
+
+            var entrega = $("#entrega").val();
+            entrega = moment(entrega);
+
+            var dias_totales = entrega.diff(recogida, 'days');
+            console.log(dias_totales);
+            var precio_dia = 35;
+
+            var total = parseInt(precio_dia) * +parseInt(dias_totales);
+            $("#precio").html('<h1> Has elegido el Yaris de ' + color + ', y vas a reservarlos ' + dias_totales + ' días, por lo tanto el precio final será ' + total + '</h1>');
+        });
+
+        $("#color-rojo").click(function() {
+            $("#imagen").attr("src", "rojo.jpg");
+            color = 'rojo';
+        });
+        $("#color-gris").click(function() {
+            $("#imagen").attr("src", "gris.jpg");
+            color = 'gris';
+        });
+        $("#color-azul").click(function() {
+            $("#imagen").attr("src", "azul.jpg");
+            color = 'azul';
+        });
+        $("#color-negro").click(function() {
+            $("#imagen").attr("src", "negro.jpg");
+            color = 'negro';
+        });
+
+
+    });
+</script>
+
+<body>
+
+</body>
+
+</html>

@@ -5,52 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <style>
-        .card {
-            margin-bottom: 1em;
-        }
-    </style>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <h1 class="display-2">Buscar</h1>
-        <div class="input-group input-group-lg">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-search"></i></span>
-            </div>
-            <input id="buscador" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-        </div>
-        <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="buscar">Buscar</button>
-        <div id="cont-everything" class="container-xl">
-            <br>
-
-
-            <div class="card-1" style="width: 18rem;">
-
-            </div>
-            <div class="card-2" style="width: 18rem;">
-            </div>
-
-        </div>
+    <div id="pedidos">
 
     </div>
 
-    </div>
+
     <script>
         //Leer nodos
         $(function() {
             var img_perro = new Array();
             var nombre_perro = new Array();
-            $.get("perros.xml", function(xml) {
-                $(xml).find("Perro").each(function() {
+            $.get("pedidos.xml", function(xml) {
+                $(xml).find("pedido").each(function() {
                     var raza = $(this).find('raza').text();
                     var img = $(this).find('img').text();
                     img_perro.push(img);
@@ -77,6 +47,17 @@
             })
         });
     </script>
+    <!-- 
+CREA UN XML CON TRES PEDIDOS
+En cada pedido se pueden vender estos productos: Sobremesas, Portátiles y Tablets, de los cuales se indicará la cantidad vendida en cada pedido,
+todos los pedidos tendrán una fecha.
+Un ejemplo de pedido sería que el día 4/12/2019 se ha pedido 4 sobremesas y 2 tablets.
+Comprueba que quede bien formado y luego crea un DTD que lo valide.
+Por último muestra los datos de los pedidos en pantalla de los pedidos en pantalla en líneas o filas.
+Y por último representa los datos de sobremesas, portátil y tablets vendidos en total con un gráfico.
+Poder elegir el tipo de gráfico
+-->
+
 </body>
 
 </html>
