@@ -1,5 +1,0 @@
-<!ELEMENT pedidos (pedido+)>
-<!ELEMENT pedido (cantidad+, fecha+)>
-<!ATTLIST  pedido producto  (Portatil | Sobremesa | Tablet)  #REQUIRED>
-<!ELEMENT cantidad (#PCDATA)>
-<!ELEMENT fecha (#PCDATA)>

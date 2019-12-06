@@ -1,0 +1,14 @@
+<!--<!ELEMENT pedidos (productos+)>
+<!ELEMENT productos (sobremesa|portatil|tablet)+ #REQUIRED >
+<!ATTLIST productos fecha CDATA #REQUIRED>
+ <!ATTLIST lineapedido cantidad CDATA>-->
+ 
+<!ELEMENT pedidos (productos+)>
+<!ELEMENT productos ( sobremesa | portatil | tablet)+>
+<!ATTLIST productos fecha CDATA #REQUIRED>
+<!ELEMENT sobremesa (#PCDATA)>
+<!ATTLIST sobremesa cantidad CDATA #REQUIRED>
+<!ELEMENT portatil (#PCDATA)>
+<!ATTLIST portatil cantidad CDATA #REQUIRED>
+<!ELEMENT tablet (#PCDATA)>
+<!ATTLIST tablet cantidad CDATA #REQUIRED>

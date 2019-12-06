@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Zapatillas SYSTEM "file:///Z:/DAW%20Segundo/Desarrollo%20web%20en%20entorno%20cliente/XML/ejer_zapt_DTD/ejer_Zapatillas_DTD2.dtd">
+<!DOCTYPE Zapatillas SYSTEM "file:///D:/Desarrollo%20Aplicaciones%20WEB%202018/Desarrollo-web-en-entorno-cliente/Desarrollo-web-en-entorno-cliente/XML/ejer_zapt_DTD/ejer_Zapatillas_DTD2.dtd">
 <Zapatillas>
 	<Zapatilla marca="Adidas">
-		<Modelo>Nimbus</Modelo>
+    <Modelo>Nimbus</Modelo>
 		<Precio>120</Precio>
 		<Stock>3</Stock>
 		<Pisada>Neutra</Pisada>

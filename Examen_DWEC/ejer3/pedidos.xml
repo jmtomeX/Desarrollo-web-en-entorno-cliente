@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE pedidos SYSTEM "file:///D:/Desarrollo%20Aplicaciones%20WEB%202018/Desarrollo-web-en-entorno-cliente/Desarrollo-web-en-entorno-cliente/Examen_DWEC/ejer3/pedidos.dtd">
+<pedidos>
+    <productos fecha="4/12/2019">
+      <sobremesa cantidad="4">sobremesa</sobremesa>
+      <portatil cantidad="6">portatil</portatil>
+      <tablet cantidad="4">tablet</tablet>
+    </productos>
+    <productos fecha="7/12/2019">
+      <portatil cantidad="3">portatil</portatil>
+      <tablet cantidad="2">tablet</tablet>
+    </productos>
+    <productos fecha="3/2/2019">
+      <sobremesa cantidad="9" >sobremesa</sobremesa>
+      <tablet cantidad="15" >tablet</tablet>
+    </productos>
+</pedidos>
+

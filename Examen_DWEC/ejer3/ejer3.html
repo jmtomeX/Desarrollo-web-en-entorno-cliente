@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="pedidos"></div>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+    <script>
+      $(function() {
+        var total_sobremesa = 0;
+        var total_portatiles = 0;
+        var total_tablets = 0;
+        var cont = 0;
+        var cont_mostrar = 0;
+        var pedidos = new Array();
+        pedidos[cont] = new Array();
+        pedidos[0] = new Array(3);
+        $.get("pedidos.xml", function(xml) {
+          $(xml)
+            .find("productos")
+            .each(function() {
+              var fecha = $(this).attr("fecha");
+
+              var sobremesa = $(this)
+                .find("sobremesa")
+                .text();
+              var cantidadPC = $(this)
+                .find("sobremesa")
+                .attr("cantidad");
+
+              var portatil = $(this)
+                .find("portatil")
+                .text();
+              var cantidadp = $(this)
+                .find("portatil")
+                .attr("cantidad");
+
+              var tablet = $(this)
+                .find("tablet")
+                .text();
+              var cantidadt = $(this)
+                .find("tablet")
+                .attr("cantidad");
+
+              pedidos[cont] = [fecha, cantidadPC, cantidadp, cantidadt];
+
+              cont++;
+              /*console.log(
+                fecha +
+                  " " +
+                  sobremesa +
+                  " " +
+                  cantidadPC +
+                  " - " +
+                  tablet +
+                  " " +
+                  cantidadp +
+                  " - " +
+                  portatil +
+                  " " +
+                  cantidadt
+              );*/
+
+              // [sobremesa, portatil, tablet];
+              for (  cont_mostrar ; cont_mostrar < pedidos.length; cont_mostrar++) {
+                for (var j = 0; j < 4; j++) {
+                  if (pedidos[cont_mostrar][j] == undefined) {
+                    pedidos[cont_mostrar][j] = 0;
+                  }
+                }
+                total_sobremesa += parseInt(pedidos[cont_mostrar][1]);
+                total_portatiles += parseInt(pedidos[cont_mostrar][2]);
+                total_tablets += parseInt(pedidos[cont_mostrar][3]);
+                $("#pedidos").append("<h2>Fecha : " + pedidos[cont_mostrar][0] + " se ha pedido " + pedidos[cont_mostrar][1] + "  sobremesas, " + pedidos[cont_mostrar][2] + " portatiles y  " + pedidos[cont_mostrar][3] +  " tablets.</h2>");
+                //var sobremesas =  pedidos[0][1] + pedidos[1][1] + pedidos[2][1];
+              }
+
+              
+            });
+                console.log("totales " + total_sobremesa);
+                console.log("totales " + total_portatiles);
+                console.log("totales " + total_tablets);
+        });
+     
+
+
+
+      google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Electrónica', 'Ventas', {
+                    role: 'style'
+                }],
+                ['Sobremesa', total_sobremesa, 'yellow'],
+                ['Portatiles', total_portatiles, 'silver'],
+                ['Tablets', total_tablets, 'red']
+
+            ]);
+            var options = {
+                title: 'Actividad en tienda',
+                is3D: true,
+
+            };
+
+            //var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+      });
+    </script>
+    <!-- 
+CREA UN XML CON TRES PEDIDOS
+En cada pedido se pueden vender estos productos: Sobremesas, Portátiles y Tablets, de los cuales se indicará la cantidad vendida en cada pedido,
+todos los pedidos tendrán una fecha.
+Un ejemplo de pedido sería que el día 4/12/2019 se ha pedido 4 sobremesas y 2 tablets.
+Comprueba que quede bien formado y luego crea un DTD que lo valide.
+Por último muestra los datos de los pedidos en pantalla de los pedidos en pantalla en líneas o filas.
+Y por último representa los datos de sobremesas, portátil y tablets vendidos en total con un gráfico.
+Poder elegir el tipo de gráfico
+-->
+  </body>
+</html>
