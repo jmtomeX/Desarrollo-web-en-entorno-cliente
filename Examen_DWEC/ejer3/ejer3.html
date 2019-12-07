@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="../jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
     <title>Document</title>
   </head>
 
   <body>
     <div id="pedidos"></div>
+    <h2>Tipo de gráfica</h2>
+    <select name="grafica" id="grafica">
+      <option value="PieChart">Gráfica de sectores</option>
+      <option value="ColumnChart">Gráfica de barras</option>
+    </select>
     <div id="piechart" style="width: 900px; height: 500px;"></div>
-
     <script>
       $(function() {
         var total_sobremesa = 0;
@@ -51,26 +58,14 @@
                 .attr("cantidad");
 
               pedidos[cont] = [fecha, cantidadPC, cantidadp, cantidadt];
-
               cont++;
-              /*console.log(
-                fecha +
-                  " " +
-                  sobremesa +
-                  " " +
-                  cantidadPC +
-                  " - " +
-                  tablet +
-                  " " +
-                  cantidadp +
-                  " - " +
-                  portatil +
-                  " " +
-                  cantidadt
-              );*/
 
               // [sobremesa, portatil, tablet];
-              for (  cont_mostrar ; cont_mostrar < pedidos.length; cont_mostrar++) {
+              for (
+                cont_mostrar;
+                cont_mostrar < pedidos.length;
+                cont_mostrar++
+              ) {
                 for (var j = 0; j < 4; j++) {
                   if (pedidos[cont_mostrar][j] == undefined) {
                     pedidos[cont_mostrar][j] = 0;
@@ -79,46 +74,61 @@
                 total_sobremesa += parseInt(pedidos[cont_mostrar][1]);
                 total_portatiles += parseInt(pedidos[cont_mostrar][2]);
                 total_tablets += parseInt(pedidos[cont_mostrar][3]);
-                $("#pedidos").append("<h2>Fecha : " + pedidos[cont_mostrar][0] + " se ha pedido " + pedidos[cont_mostrar][1] + "  sobremesas, " + pedidos[cont_mostrar][2] + " portatiles y  " + pedidos[cont_mostrar][3] +  " tablets.</h2>");
-                //var sobremesas =  pedidos[0][1] + pedidos[1][1] + pedidos[2][1];
+                $("#pedidos").append(
+                  "<h2>Fecha : " +
+                    pedidos[cont_mostrar][0] +
+                    " se ha pedido " +
+                    pedidos[cont_mostrar][1] +
+                    "  sobremesas, " +
+                    pedidos[cont_mostrar][2] +
+                    " portatiles y  " +
+                    pedidos[cont_mostrar][3] +
+                    " tablets.</h2>"
+                );
               }
-
-              
             });
-                console.log("totales " + total_sobremesa);
-                console.log("totales " + total_portatiles);
-                console.log("totales " + total_tablets);
         });
-     
+        var tipo_grafica = "Piechart";
+        $("select[name=grafica]").change(function() {
+          tipo_grafica = $("select[name=grafica]").val();
+          alert(tipo_grafica);
+        });
 
-
-
-      google.charts.load('current', {
-            'packages': ['corechart']
+        google.charts.load("current", {
+          packages: ["corechart"]
         });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            [
+              "Electrónica",
+              "Ventas",
+              {
+                role: "style"
+              }
+            ],
+            ["Sobremesa", total_sobremesa, "yellow"],
+            ["Portatiles", total_portatiles, "silver"],
+            ["Tablets", total_tablets, "red"]
+          ]);
+          var options = {
+            title: "Actividad en tienda",
+            is3D: true
+          };
 
-            var data = google.visualization.arrayToDataTable([
-                ['Electrónica', 'Ventas', {
-                    role: 'style'
-                }],
-                ['Sobremesa', total_sobremesa, 'yellow'],
-                ['Portatiles', total_portatiles, 'silver'],
-                ['Tablets', total_tablets, 'red']
+          // funcion eval
+          /*var stringFunciton =
+            "new google.visualization." +
+            tipo_grafica +
+            '(document.getElementById("piechart"))';
+          alert(stringFunciton);
+          var chart = eval(cadena);*/
 
-            ]);
-            var options = {
-                title: 'Actividad en tienda',
-                is3D: true,
-
-            };
-
-            //var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            var chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
-
-            chart.draw(data, options);
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById("piechart")
+          );
+          chart.draw(data, options);
         }
       });
     </script>
