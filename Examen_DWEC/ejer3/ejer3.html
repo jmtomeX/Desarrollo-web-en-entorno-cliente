@@ -9,17 +9,51 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Bebas Neue", cursive;
+      }
+      #main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      input,
+      select {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+      input[type="button"] {
+        background: white;
+      }
+      input[type="button"]:hover {
+        background: black;
+        color: white;
+      }
+    </style>
     <title>Document</title>
   </head>
 
   <body>
-    <div id="pedidos"></div>
-    <h2>Tipo de gráfica</h2>
-    <select name="grafica" id="grafica">
-      <option value="PieChart">Gráfica de sectores</option>
-      <option value="ColumnChart">Gráfica de barras</option>
-    </select>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <main id="main">
+      <section id="content">
+        <div id="pedidos"></div>
+        <h2>Tipo de gráfica</h2>
+        <select name="grafica" id="grafica">
+          <option value="PieChart">Gráfica de sectores</option>
+          <option value="ColumnChart">Gráfica de barras</option>
+        </select>
+        <input type="button" value="Mostrar Gráfica" id="cambiar" />
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+      </section>
+    </main>
     <script>
       $(function() {
         var total_sobremesa = 0;
@@ -77,23 +111,26 @@
                 $("#pedidos").append(
                   "<h2>Fecha : " +
                     pedidos[cont_mostrar][0] +
-                    " se ha pedido " +
+                    " se han vendido " +
                     pedidos[cont_mostrar][1] +
                     "  sobremesas, " +
                     pedidos[cont_mostrar][2] +
-                    " portatiles y  " +
+                    " portatiles " +
                     pedidos[cont_mostrar][3] +
                     " tablets.</h2>"
                 );
               }
             });
         });
-        var tipo_grafica = "Piechart";
-        $("select[name=grafica]").change(function() {
-          tipo_grafica = $("select[name=grafica]").val();
-          alert(tipo_grafica);
+        $("#cambiar").click(function() {
+          var tipo_grafica = $("select[name=grafica]").val();
+          var chart =
+            "new google.visualization." +
+            tipo_grafica +
+            '(document.getElementById("piechart"))';
+          localStorage.setItem("grafica", chart);
+          location.reload(true);
         });
-
         google.charts.load("current", {
           packages: ["corechart"]
         });
@@ -117,17 +154,8 @@
             is3D: true
           };
 
-          // funcion eval
-          /*var stringFunciton =
-            "new google.visualization." +
-            tipo_grafica +
-            '(document.getElementById("piechart"))';
-          alert(stringFunciton);
-          var chart = eval(cadena);*/
-
-          var chart = new google.visualization.ColumnChart(
-            document.getElementById("piechart")
-          );
+          var grafica = localStorage.getItem("grafica");
+          chart = eval(grafica);
           chart.draw(data, options);
         }
       });
