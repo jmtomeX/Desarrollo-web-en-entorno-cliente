@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .fila {
+            width: 50%;
+            color: rgb(138, 136, 138);
+            font-size: 20px;
+            font-family: Courier;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 30px;
+            letter-spacing: 5px;
+            text-align: left;
+            border: 1px solid black;
+            margin-bottom: 1em;
+            padding: 1em;
+        }
+        
+        input[type=text] {
+            background: silver;
+            border: 1px solid #393939;
+            border-radius: 5px 5px 5px 5px;
+            font-size: 12px;
+            padding: 5px;
+        }
+        
+        label {
+            display: block;
+            margin: .5em 0 0 0;
+            padding-right: 1em;
+        }
+        
+        .btn {
+            display: block;
+            margin: 1em 0;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <h2>CUENTA BANCARIA</h2>
+        Querremos tener Codigo de la cuenta, con su correspondiente saldo, los intereses que no es han dado y quien es el titular de la cuenta con nombre y apellido.
+    </p>
+    <label for="num_cuneta">Número de cuenta</label><input id="num_cuenta" type="text"><br>
+    <label for="saldo">Saldo</label><input id="saldo" type="text"><br>
+    <label for="intereses">Intereses</label><input id="intereses" type="text"><br>
+    <label for="nom_titular">Nombre Titular</label><input id="nom_titular" type="text"><br>
+    <label for="ape_titular">Apellidos Titular</label><input id="ape_titular" type="text"><br>
+    <input type="button" value="Enviar" onclick="anhadir()">
+    <div id="mostrar" class='fila'></div>
+
+    <script>
+        lista_cuentas = [];
+        var cuenta = document.querySelector("#num_cuenta").value;
+        var saldo = document.querySelector("#saldo").value;
+        var intereses = document.querySelector("#intereses").value;
+        var nombre = document.querySelector("#nom_titular").value;
+        var apellidos = document.querySelector("#ape_titular").value;
+        var caja_mostrar = document.querySelector("#mostrar");
+
+        function Banco(num_cuenta, saldo, intereses, nom_titular, ape_titular) {
+            this.num_cuenta = num_cuenta;
+            this.saldo = saldo;
+            this.intereses = intereses;
+            this.nom_titular = nom_titular;
+            this.ape_titular = ape_titular;
+
+            this.mostrarDatos = function() {
+                var linea = "";
+                for (let i in this) {
+                    if (typeof this[i] != "function") {
+                        linea = linea + i + ' - ' + this[i] + '<br />';
+                    }
+                }
+                return linea;
+            }
+        }
+        lista_cuentas[0] = new Banco("ES6621000418401234567891", 4242, 144, "Angeles", "Agustina Pura");
+        lista_cuentas[1] = new Banco("ES6000491500051234567892", 5355, 244, "Antonio", "Derrumbado Josetxo");
+        lista_cuentas[2] = new Banco("ES9420805801101234567891", 2544, 144, "Gorofredo", "Del Todo");
+        lista_cuentas[3] = new Banco("ES9000246912501234567891", 7445, 122, "Agustina", "Fuengiroles Tomelloso");
+
+        for (let i of lista_cuentas) {
+            document.write("<div class='fila'>" + i.mostrarDatos() + "</div>");
+        }
+
+        function anhadir() {
+            var UnBanco = new Banco(cuenta, saldo, intereses, nombre, apellidos);
+            lista_cuentas.push(UnBanco);
+            caja_mostrar.innerHTML += UnBanco.mostrarDatos();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Documento sin título</title>
+</head>
+
+<body>
+    <script>
+        lista_cursos = [];
+
+        function Curso(codigo, titulo, horas) {
+            this.codigo = codigo;
+            this.titulo = titulo;
+            this.horas = horas;
+
+            this.ver_Datos = function() {
+                mostrar = "";
+                for (let i in this) {
+                    if (typeof this[i] != "function") {
+                        mostrar = mostrar + i + ' - ' + this[i] + '<br />';
+                    }
+                }
+                return mostrar;
+            }
+        }
+        lista_cursos[0] = new Curso("W02", "Word Avanzado", 30);
+        lista_cursos[1] = new Curso("E03", "Excel Básico", 20);
+        lista_cursos[2] = new Curso("P06", "Powerpoint 2010", 10);
+        lista_cursos[3] = new Curso("W03", "Word 2010", 10);
+        for (let i of lista_cursos) {
+            document.write(i.ver_Datos() + "<br />");
+        }
+    </script>
+
+</body>
+
+</html>
