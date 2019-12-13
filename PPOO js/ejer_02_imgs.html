@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .fila {
+            width: 30%;
+            font-size: 20px;
+            font-family: Courier;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 30px;
+            letter-spacing: 5px;
+            text-align: left;
+            border: 1px solid black;
+            margin-bottom: 1em;
+            padding: 1em;
+        }
+        
+        input[type=text] {
+            background: white;
+            border: 0;
+            border-bottom: 1px solid #393939;
+            font-size: 12px;
+            padding: 5px;
+        }
+        
+        label {
+            display: block;
+            margin: .5em 0 0 0;
+            padding-right: 1em;
+        }
+        
+        .btn {
+            display: block;
+            margin: 1em 0;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Creamos un objeto que sea para la información de imagenes. Cada imagen tendrá un titulo, su nombre de fichero, el tema, el autor y una puntuación. Inicialmente haces que aparezcan 3, y luego con campos de texto para el titulo y el autor, un desplegable
+        para el tema y un tipo file para el nombre del fichero, la puntuación con un tipo number, al darle al botón Añadir que salga también la foto.</p>
+    <label for="titulo">Titulo</label><input id="titulo" type="text"><br>
+    <label for="fichero">Fichero</label><input id="fichero" type="file"><br>
+    <label for="tema">Tema</label><input id="tema" type="text"><br>
+    <label for="autor">Autor</label><input id="autor" type="text"><br>
+    <label for="puntuación">Puntuación</label><input id="puntuación" type="number"><br>
+    <input type="button" class="btn" value="Enviar" onclick="enviarCartel()">
+    <div id="div1"></div>
+    <script>
+        var bancoImagenes = [];
+        var img_titulo = document.querySelector("#titulo").value;
+        var img_fichero = document.querySelector("#fichero").value;
+        var img_tema = document.querySelector("#tema").value;
+        var img_autor = document.querySelector("#autor").value;
+        var img_puntuación = document.querySelector("#puntuación").value;
+
+
+        function Imagen(titulo, fichero, tema, autor, puntuacion) {
+            this.titulo = titulo;
+            this.fichero = fichero;
+            this.tema = tema;
+            this.autor = autor;
+            this.puntuacion = puntuacion;
+
+            this.mostrarImgs = function() {
+                var cartel = "";
+                for (let i in this) {
+                    if (typeof this[i] != "function") {
+                        cartel = cartel + i.toUpperCase() + '  ' + this[i] + '<br />';
+                    }
+                }
+                return cartel;
+            }
+        }
+
+        bancoImagenes[0] = new Imagen("Bicicleta de Motaña", "rallon.jpg", "Deportes", "Angel Fular", 5);
+        bancoImagenes[1] = new Imagen("Bicicleta de Carretera", "ORCA_M20iLTD.jpg", "Deportes", "Maite Goratzategi", 6);
+        bancoImagenes[2] = new Imagen("Ordenador", "lenobo.jpg", "Informática", "Mikel Melloso", 3);
+
+        var cont = 0;
+        for (let i of bancoImagenes) {
+            document.write("<div class='fila'>" + i.mostrarImgs() +
+                '<img src="../img/' + bancoImagenes[cont].fichero +
+                '" +  alt="" height="300">' +
+                "</div>");
+            cont++;
+        }
+
+        function nombreFichero(fichero) {
+            fichero = fichero.split('\\');
+            return fichero[fichero.length - 1];
+        }
+
+        function enviarCartel() {
+            var img = nombreFichero(img_fichero);
+            console.log(img);
+            var UnCartel = new Imagen(img_titulo, img, img_tema, img_autor, img_puntuación);
+            bancoImagenes.push(UnCartel);
+            // caja_mostrar.innerHTML += UnCartel.mostrarImgs();
+
+            var newDiv = document.createElement("div");
+            newDiv.setAttribute("class", "fila");
+            var newImg = document.createElement("img");
+            var url = '../img/' + img;
+            newImg.setAttribute("src", url);
+            newImg.setAttribute("height", "300");
+            console.log(newImg);
+            //newDiv.appendChild(newImg.outerHTML);
+            newDiv.innerHTML = UnCartel.mostrarImgs() + newImg.outerHTML + "<br/>";
+            //var newContent = document.createTextNode();
+
+            //newDiv.appendChild(newContent); //añade texto al div creado. 
+
+            // añade el elemento creado y su contenido al DOM 
+            var currentDiv = document.querySelector("#div1");
+            document.body.insertBefore(newDiv, currentDiv);
+            //document.body.insert(newImg, newDiv);
+
+            /* document.write("<div class='fila'>" + i.mostrarImgs() +
+                 '<img src="../img/' + bancoImagenes[cont].fichero +
+                 '" +  alt="" height="300">' +
+                 "</div>");*/
+
+        }
+    </script>
+</body>
+
+</html>
